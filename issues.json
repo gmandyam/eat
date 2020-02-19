@@ -1,6 +1,54 @@
 [
 
   {
+    "url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/54",
+    "repository_url": "https://api.github.com/repos/ietf-rats-wg/eat",
+    "labels_url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/54/labels{/name}",
+    "comments_url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/54/comments",
+    "events_url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/54/events",
+    "html_url": "https://github.com/ietf-rats-wg/eat/issues/54",
+    "id": 566899737,
+    "node_id": "MDU6SXNzdWU1NjY4OTk3Mzc=",
+    "number": 54,
+    "title": "Accommodate \"GP unendorsed\" tokens",
+    "user": {
+      "login": "laurencelundblade",
+      "id": 7951515,
+      "node_id": "MDQ6VXNlcjc5NTE1MTU=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7951515?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/laurencelundblade",
+      "html_url": "https://github.com/laurencelundblade",
+      "followers_url": "https://api.github.com/users/laurencelundblade/followers",
+      "following_url": "https://api.github.com/users/laurencelundblade/following{/other_user}",
+      "gists_url": "https://api.github.com/users/laurencelundblade/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/laurencelundblade/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/laurencelundblade/subscriptions",
+      "organizations_url": "https://api.github.com/users/laurencelundblade/orgs",
+      "repos_url": "https://api.github.com/users/laurencelundblade/repos",
+      "events_url": "https://api.github.com/users/laurencelundblade/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/laurencelundblade/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2020-02-18T13:39:54Z",
+    "updated_at": "2020-02-18T13:39:54Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "Consider making an EAT a \"CWT Claims Set\" as defined in CWT (and JWT) to accommodate GP's desired for unsigned tokens."
+  },
+  {
     "url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/53",
     "repository_url": "https://api.github.com/repos/ietf-rats-wg/eat",
     "labels_url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/53/labels{/name}",
@@ -91,7 +139,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2020-02-13T13:54:03Z",
-    "updated_at": "2020-02-18T11:18:16Z",
+    "updated_at": "2020-02-19T11:33:45Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -1499,7 +1547,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Sec.'s 3.7.3, 3.7.4 and 3.7.5 start out with the term \"this claim\".  These are actually not claims as per the definition in Sec. 3.7, but boolean values included in the boot_state claim.    "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/24",
     "repository_url": "https://api.github.com/repos/ietf-rats-wg/eat",
@@ -1547,10 +1598,7 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "It isn't clear whether an key used for attestation is restricted to signing evidence that is controlled by a trusted environment. The risk of not having constraints is the key may be subject to a confused deputy attack where claims are presented as opaque data that then receive a signature and a verifier presumes the attester made the claims. \r\n\r\nShould it be mandatory for EAT claims to reside within the security perimeter of a trusted environment such as a TEEP TEE / TEEP Agent?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/23",
     "repository_url": "https://api.github.com/repos/ietf-rats-wg/eat",
