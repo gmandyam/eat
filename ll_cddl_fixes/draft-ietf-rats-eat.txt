@@ -5,11 +5,11 @@
 RATS Working Group                                            G. Mandyam
 Internet-Draft                                Qualcomm Technologies Inc.
 Intended status: Standards Track                            L. Lundblade
-Expires: 21 August 2020                              Security Theory LLC
+Expires: 22 August 2020                              Security Theory LLC
                                                           M. Ballesteros
                                                            J. O'Donoghue
                                               Qualcomm Technologies Inc.
-                                                        18 February 2020
+                                                        19 February 2020
 
 
                    The Entity Attestation Token (EAT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 August 2020.
+   This Internet-Draft will expire on 22 August 2020.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Mandyam, et al.          Expires 21 August 2020                 [Page 1]
+Mandyam, et al.          Expires 22 August 2020                 [Page 1]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Mandyam, et al.          Expires 21 August 2020                 [Page 2]
+Mandyam, et al.          Expires 22 August 2020                 [Page 2]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -165,7 +165,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                 [Page 3]
+Mandyam, et al.          Expires 22 August 2020                 [Page 3]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -221,7 +221,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                 [Page 4]
+Mandyam, et al.          Expires 22 August 2020                 [Page 4]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -277,7 +277,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                 [Page 5]
+Mandyam, et al.          Expires 22 August 2020                 [Page 5]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -333,7 +333,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                 [Page 6]
+Mandyam, et al.          Expires 22 August 2020                 [Page 6]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -389,7 +389,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                 [Page 7]
+Mandyam, et al.          Expires 22 August 2020                 [Page 7]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -445,7 +445,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                 [Page 8]
+Mandyam, et al.          Expires 22 August 2020                 [Page 8]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -501,7 +501,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                 [Page 9]
+Mandyam, et al.          Expires 22 August 2020                 [Page 9]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -557,7 +557,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 10]
+Mandyam, et al.          Expires 22 August 2020                [Page 10]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -613,7 +613,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 11]
+Mandyam, et al.          Expires 22 August 2020                [Page 11]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -630,7 +630,9 @@ Internet-Draft                     EAT                     February 2020
 
 3.4.1.  ueid CDDL
 
-   ~~~~CDDL ueid-claim = ( ueid => bstr .size (7..33) ) ~~~~
+   ueid-claim = (
+        ueid => bstr .size (7..33)
+   )
 
 3.5.  Origination Claim (origination)
 
@@ -667,9 +669,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-
-
-Mandyam, et al.          Expires 21 August 2020                [Page 12]
+Mandyam, et al.          Expires 22 August 2020                [Page 12]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -725,7 +725,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 13]
+Mandyam, et al.          Expires 22 August 2020                [Page 13]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -781,7 +781,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 14]
+Mandyam, et al.          Expires 22 August 2020                [Page 14]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -837,7 +837,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 15]
+Mandyam, et al.          Expires 22 August 2020                [Page 15]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -893,7 +893,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 16]
+Mandyam, et al.          Expires 22 August 2020                [Page 16]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -949,7 +949,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 17]
+Mandyam, et al.          Expires 22 August 2020                [Page 17]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1005,7 +1005,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 18]
+Mandyam, et al.          Expires 22 August 2020                [Page 18]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1061,7 +1061,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 19]
+Mandyam, et al.          Expires 22 August 2020                [Page 19]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1117,7 +1117,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 20]
+Mandyam, et al.          Expires 22 August 2020                [Page 20]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1173,7 +1173,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 21]
+Mandyam, et al.          Expires 22 August 2020                [Page 21]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1229,7 +1229,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 22]
+Mandyam, et al.          Expires 22 August 2020                [Page 22]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1285,7 +1285,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 23]
+Mandyam, et al.          Expires 22 August 2020                [Page 23]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1341,7 +1341,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 24]
+Mandyam, et al.          Expires 22 August 2020                [Page 24]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1397,7 +1397,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 25]
+Mandyam, et al.          Expires 22 August 2020                [Page 25]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1453,7 +1453,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 26]
+Mandyam, et al.          Expires 22 August 2020                [Page 26]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1509,7 +1509,7 @@ A.2.  Example with Submodules, Nesting and Security Levels
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 27]
+Mandyam, et al.          Expires 22 August 2020                [Page 27]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1565,7 +1565,7 @@ B.1.  Collision Probability
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 28]
+Mandyam, et al.          Expires 22 August 2020                [Page 28]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1621,7 +1621,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 29]
+Mandyam, et al.          Expires 22 August 2020                [Page 29]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1677,7 +1677,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 30]
+Mandyam, et al.          Expires 22 August 2020                [Page 30]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1733,7 +1733,7 @@ B.2.  No Use of UUID
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 31]
+Mandyam, et al.          Expires 22 August 2020                [Page 31]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1789,7 +1789,7 @@ Authors' Addresses
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 32]
+Mandyam, et al.          Expires 22 August 2020                [Page 32]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1845,4 +1845,4 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 21 August 2020                [Page 33]
+Mandyam, et al.          Expires 22 August 2020                [Page 33]
