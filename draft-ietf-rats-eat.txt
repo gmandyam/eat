@@ -140,25 +140,25 @@ Internet-Draft                     EAT                     February 2020
    6.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .  24
      6.1.  UEID Privacy Considerations . . . . . . . . . . . . . . .  24
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  25
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  25
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  25
-     8.2.  Informative References  . . . . . . . . . . . . . . . . .  26
-   Appendix A.  Examples . . . . . . . . . . . . . . . . . . . . . .  27
-     A.1.  Very Simple EAT . . . . . . . . . . . . . . . . . . . . .  27
-     A.2.  Example with Submodules, Nesting and Security Levels  . .  27
-   Appendix B.  UEID Design Rationale  . . . . . . . . . . . . . . .  28
-     B.1.  Collision Probability . . . . . . . . . . . . . . . . . .  28
-     B.2.  No Use of UUID  . . . . . . . . . . . . . . . . . . . . .  31
-   Appendix C.  Changes from Previous Drafts . . . . . . . . . . . .  32
-     C.1.  From draft-rats-eat-01  . . . . . . . . . . . . . . . . .  32
-     C.2.  From draft-mandyam-rats-eat-00  . . . . . . . . . . . . .  32
-     C.3.  From draft-ietf-rats-eat-01 . . . . . . . . . . . . . . .  32
-     C.4.  From draft-ietf-rats-eat-02 . . . . . . . . . . . . . . .  32
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  32
-
-
-
-
+     7.1.  Key Provisioning  . . . . . . . . . . . . . . . . . . . .  25
+       7.1.1.  Transmission of Key Material  . . . . . . . . . . . .  25
+     7.2.  Transport Security  . . . . . . . . . . . . . . . . . . .  25
+     7.3.  Multiple EAT Consumers  . . . . . . . . . . . . . . . . .  26
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  26
+     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  26
+     8.2.  Informative References  . . . . . . . . . . . . . . . . .  28
+   Appendix A.  Examples . . . . . . . . . . . . . . . . . . . . . .  29
+     A.1.  Very Simple EAT . . . . . . . . . . . . . . . . . . . . .  29
+     A.2.  Example with Submodules, Nesting and Security Levels  . .  29
+   Appendix B.  UEID Design Rationale  . . . . . . . . . . . . . . .  30
+     B.1.  Collision Probability . . . . . . . . . . . . . . . . . .  30
+     B.2.  No Use of UUID  . . . . . . . . . . . . . . . . . . . . .  33
+   Appendix C.  Changes from Previous Drafts . . . . . . . . . . . .  34
+     C.1.  From draft-rats-eat-01  . . . . . . . . . . . . . . . . .  34
+     C.2.  From draft-mandyam-rats-eat-00  . . . . . . . . . . . . .  34
+     C.3.  From draft-ietf-rats-eat-01 . . . . . . . . . . . . . . .  34
+     C.4.  From draft-ietf-rats-eat-02 . . . . . . . . . . . . . . .  34
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  34
 
 
 
@@ -1348,9 +1348,90 @@ Internet-Draft                     EAT                     February 2020
 
 7.  Security Considerations
 
-   TODO: Perhaps this can be the same as CWT / COSE, but not sure yet
-   because it involves so much entity / device security that those do
-   not.
+   The security considerations provided in Section 8 of [RFC8392] and
+   Section 11 of [RFC7519] apply to EAT in its CWT and JWT form,
+   respectively.  In addition, implementors should consider the
+   following.
+
+7.1.  Key Provisioning
+
+   Private key material can be used to sign and/or encrypt the EAT, or
+   can be used to derive the keys used for signing and/or encryption.
+   In some instances, the manufacturer of the entity may create the key
+   material separately and provision the key material in the entity
+   itself.  The manfuacturer of any entity that is capable of producing
+   an EAT should take care to ensure that any private key material be
+   suitably protected prior to provisioning the key material in the
+   entity itself.  This can require creation of key material in an
+   enclave (see [RFC4949] for definition of "enclave"), secure
+   transmission of the key material from the enclave to the entity using
+   an appropriate protocol, and persistence of the private key material
+   in some form of secure storage to which (preferably) only the entity
+   has access.
+
+7.1.1.  Transmission of Key Material
+
+   Regarding transmission of key material from the enclave to the
+   entity, the key material may pass through one or more intermediaries.
+   Therefore some form of protection ("key wrapping") may be necessary.
+   The transmission itself may be performed electronically, but can also
+   be done by human courier.  In the latter case, there should be
+   minimal to no exposure of the key material to the human (e.g.
+   encrypted portable memory).  Moreover, the human should transport the
+   key material directly from the secure enclave where it was created to
+   a destination secure enclave where it can be provisioned.
+
+7.2.  Transport Security
+
+   As stated in Section 8 of [RFC8392], "The security of the CWT relies
+   upon on the protections offered by COSE".  Similar considerations
+   apply to EAT when sent as a CWT.  However, EAT introduces the concept
+   of a nonce (to be specifically carried via a 'cti' claim) to protect
+   against replay.  Since an EAT may be created by an entity that may
+   not support the same type of transport security as the consumer of
+   the EAT, intermediaries may be required to bridge communications
+   between the entity and consumer.  As a result, it is RECOMMENDED that
+   both the consumer create a nonce, and the entity leverage the nonce
+   along with COSE mechanisms for encryption and/or signing to create
+   the EAT.
+
+
+
+Mandyam, et al.          Expires 22 August 2020                [Page 25]
+
+Internet-Draft                     EAT                     February 2020
+
+
+   Similar considerations apply to the use of EAT as a JWT.  Although
+   the security of a JWT leverages the JSON Web Encryption (JWE) and
+   JSON Web Signature (JWS) specifications, it is still recommended to
+   make use of the EAT nonce.
+
+7.3.  Multiple EAT Consumers
+
+   In many cases, more than one EAT consumer may be required to fully
+   verify the entity attestation.  Examples include individual consumers
+   for nested EATs, or consumers for individual claims with an EAT.
+   When multiple consumers are required for verification of an EAT, it
+   is important to minimize information exposure to each consumer.  In
+   addition, the communication between multiple consumers should be
+   secure.
+
+   For instance, consider the example of an encrypted and signed EAT
+   with multiple claims.  A consumer may receive the EAT (denoted as the
+   "receiving consumer"), decrypt its payload, verify its signature, but
+   then pass specific subsets of claims to other consumers for
+   evaluation ("downstream consumers").  Since any COSE encryption will
+   be removed by the receiving consumer, the communication of claim
+   subsets to any downstream consumer should leverage a secure protocol
+   (e.g.one that uses transport-layer security, i.e. TLS),
+
+   However, assume the EAT of the previous example is hierarchical and
+   each claim subset for a downstream consumer is created in the form of
+   a nested EAT.  Then transport security between the receiving and
+   downstream consumers is not strictly required.  Nevertheless,
+   downstream consumers of a nested EAT should provide a nonce unique to
+   the EAT they are consuming.
 
 8.  References
 
@@ -1368,6 +1449,14 @@ Internet-Draft                     EAT                     February 2020
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
+
+
+
+
+Mandyam, et al.          Expires 22 August 2020                [Page 26]
+
+Internet-Draft                     EAT                     February 2020
+
 
    [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
@@ -1394,14 +1483,6 @@ Internet-Draft                     EAT                     February 2020
               "CBOR Web Token (CWT)", RFC 8392, DOI 10.17487/RFC8392,
               May 2018, <https://www.rfc-editor.org/info/rfc8392>.
 
-
-
-
-Mandyam, et al.          Expires 22 August 2020                [Page 25]
-
-Internet-Draft                     EAT                     February 2020
-
-
    [RFC8610]  Birkholz, H., Vigano, C., and C. Bormann, "Concise Data
               Definition Language (CDDL): A Notational Convention to
               Express Concise Binary Object Representation (CBOR) and
@@ -1425,6 +1506,13 @@ Internet-Draft                     EAT                     February 2020
               Mapping Agency Technical Report 8350.2, Third Edition",
               2000, <http://earth-
               info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf>.
+
+
+
+Mandyam, et al.          Expires 22 August 2020                [Page 27]
+
+Internet-Draft                     EAT                     February 2020
+
 
 8.2.  Informative References
 
@@ -1450,14 +1538,6 @@ Internet-Draft                     EAT                     February 2020
 
    [IEEE.802-2001]
               "IEEE Standard For Local And Metropolitan Area Networks
-
-
-
-Mandyam, et al.          Expires 22 August 2020                [Page 26]
-
-Internet-Draft                     EAT                     February 2020
-
-
               Overview And Architecture", 2007,
               <https://webstore.ansi.org/standards/ieee/
               ieee8022001r2007>.
@@ -1482,6 +1562,17 @@ Internet-Draft                     EAT                     February 2020
               Unique IDentifier (UUID) URN Namespace", RFC 4122,
               DOI 10.17487/RFC4122, July 2005,
               <https://www.rfc-editor.org/info/rfc4122>.
+
+
+
+Mandyam, et al.          Expires 22 August 2020                [Page 28]
+
+Internet-Draft                     EAT                     February 2020
+
+
+   [RFC4949]  Shirey, R., "Internet Security Glossary, Version 2",
+              FYI 36, RFC 4949, DOI 10.17487/RFC4949, August 2007,
+              <https://www.rfc-editor.org/info/rfc4949>.
 
    [Webauthn] Worldwide Web Consortium, "Web Authentication: A Web API
               for accessing scoped credentials", 2016.
@@ -1509,7 +1600,28 @@ A.2.  Example with Submodules, Nesting and Security Levels
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 27]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Mandyam, et al.          Expires 22 August 2020                [Page 29]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1565,7 +1677,7 @@ B.1.  Collision Probability
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 28]
+Mandyam, et al.          Expires 22 August 2020                [Page 30]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1621,7 +1733,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 29]
+Mandyam, et al.          Expires 22 August 2020                [Page 31]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1677,7 +1789,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 30]
+Mandyam, et al.          Expires 22 August 2020                [Page 32]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1733,7 +1845,7 @@ B.2.  No Use of UUID
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 31]
+Mandyam, et al.          Expires 22 August 2020                [Page 33]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1789,7 +1901,7 @@ Authors' Addresses
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 32]
+Mandyam, et al.          Expires 22 August 2020                [Page 34]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1845,4 +1957,4 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 33]
+Mandyam, et al.          Expires 22 August 2020                [Page 35]

@@ -1146,6 +1146,22 @@ CWT and JWT.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-key-provisioning" class="xref">Key Provisioning</a><a href="#section-toc.1-1.7.2.1.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.7.2.1.2.1">
+                    <p id="section-toc.1-1.7.2.1.2.1.1"><a href="#section-7.1.1" class="xref">7.1.1</a>.  <a href="#name-transmission-of-key-materia" class="xref">Transmission of Key Material</a><a href="#section-toc.1-1.7.2.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-transport-security" class="xref">Transport Security</a><a href="#section-toc.1-1.7.2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.7.2.3">
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="xref">7.3</a>.  <a href="#name-multiple-eat-consumers" class="xref">Multiple EAT Consumers</a><a href="#section-toc.1-1.7.2.3.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.8">
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-references" class="xref">References</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
@@ -2426,9 +2442,70 @@ one UEID and it is still globally universal across manufacturers.<a href="#secti
       <h2 id="name-security-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-7-1">TODO: Perhaps this can be the same as CWT / COSE, but not sure yet
-because it involves so much entity / device security that 
-those do not.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">The security considerations provided in Section 8 of <span>[<a href="#RFC8392" class="xref">RFC8392</a>]</span> and Section 11
+of <span>[<a href="#RFC7519" class="xref">RFC7519</a>]</span> apply to EAT in its CWT and JWT form, respectively.  In addition, 
+implementors should consider the following.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<div id="key-provisioning">
+<section id="section-7.1">
+        <h3 id="name-key-provisioning">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-key-provisioning" class="section-name selfRef">Key Provisioning</a>
+        </h3>
+<p id="section-7.1-1">Private key material can be used to sign and/or encrypt the EAT, or can be used to derive
+the keys used for signing and/or encryption.  In some instances, the manufacturer of the entity
+may create the key material separately and provision the key material in the entity itself.
+The manfuacturer of any entity that is capable of producing an EAT should take care 
+to ensure that any private key material be suitably protected prior to provisioning the key
+material in the entity itself.  This can require creation of key material in an enclave (see
+<span>[<a href="#RFC4949" class="xref">RFC4949</a>]</span> for definition of "enclave"),
+secure transmission of the key material from the enclave to the entity using an appropriate protocol,
+and persistence of the private key material in some form of secure storage to which (preferably) only the entity has
+access.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<div id="transmission-of-key-material">
+<section id="section-7.1.1">
+          <h4 id="name-transmission-of-key-materia">
+<a href="#section-7.1.1" class="section-number selfRef">7.1.1. </a><a href="#name-transmission-of-key-materia" class="section-name selfRef">Transmission of Key Material</a>
+          </h4>
+<p id="section-7.1.1-1">Regarding transmission of key material from the enclave to the entity, the key material may pass through one
+or more intermediaries.  Therefore some form of protection ("key wrapping") may be necessary.  The transmission
+itself may be performed electronically, but can also be done by human courier.  In the latter case, there should be minimal
+to no exposure of the key material to the human (e.g. encrypted portable memory).  Moreover, the human should transport the key
+material directly from the secure enclave where it was created to a destination secure enclave where it can be provisioned.<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="transport-security">
+<section id="section-7.2">
+        <h3 id="name-transport-security">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-transport-security" class="section-name selfRef">Transport Security</a>
+        </h3>
+<p id="section-7.2-1">As stated in Section 8 of <span>[<a href="#RFC8392" class="xref">RFC8392</a>]</span>, "The security of the CWT relies upon on the protections offered by COSE".  Similar considerations apply to EAT when sent as a CWT.  However,  EAT introduces the concept of a nonce (to be specifically carried via a 'cti' claim)
+to protect against replay.  Since an EAT may be created by an entity that may not support the same type of transport security
+as the consumer of the EAT, intermediaries may be required to bridge communications between the entity and consumer.  As a result, it
+is RECOMMENDED that both the consumer create a nonce, and the entity leverage the nonce along with COSE mechanisms for encryption and/or signing to create the EAT.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.2-2">Similar considerations apply to the use of EAT as a JWT.  Although the security of a JWT leverages the JSON Web Encryption (JWE) and JSON Web Signature (JWS) specifications, it is still recommended to make use of the EAT nonce.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="multiple-eat-consumers">
+<section id="section-7.3">
+        <h3 id="name-multiple-eat-consumers">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-multiple-eat-consumers" class="section-name selfRef">Multiple EAT Consumers</a>
+        </h3>
+<p id="section-7.3-1">In many cases, more than one EAT consumer may be required to fully verify the entity attestation.  Examples
+include individual consumers for nested EATs, or consumers for individual claims with an EAT.  When multiple consumers
+are required for verification of an EAT, it is important to minimize information exposure to each consumer.  In addition, the
+communication between multiple consumers should be secure.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
+<p id="section-7.3-2">For instance, consider the example of an encrypted and signed EAT with multiple claims.  A consumer may receive the EAT (denoted as
+the "receiving consumer"), decrypt
+its payload, verify its signature, but then pass specific subsets of claims to other consumers for evaluation ("downstream
+consumers").  Since any COSE
+encryption will be removed by the receiving consumer, the communication of claim subsets to any downstream consumer should leverage
+a secure protocol (e.g.one that uses transport-layer security, i.e. TLS),<a href="#section-7.3-2" class="pilcrow">¶</a></p>
+<p id="section-7.3-3">However, assume the EAT of the previous example is hierarchical and each claim subset for a downstream consumer is created in the form
+of a nested EAT.  Then transport security between the receiving and downstream consumers is not strictly required.  Nevertheless, 
+downstream consumers of a nested EAT should provide a nonce unique to the EAT they are consuming.<a href="#section-7.3-3" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <section id="section-8">
@@ -2513,6 +2590,9 @@ those do not.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <dt id="RFC4122">[RFC4122]</dt>
 <dd>
 <span class="refAuthor">Leach, P.</span><span class="refAuthor">, Mealling, M.</span><span class="refAuthor">, and R. Salz</span>, <span class="refTitle">"A Universally Unique IDentifier (UUID) URN Namespace"</span>, <span class="seriesInfo">RFC 4122</span>, <span class="seriesInfo">DOI 10.17487/RFC4122</span>, <time datetime="2005-07">July 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc4122">https://www.rfc-editor.org/info/rfc4122</a>&gt;</span>. </dd>
+<dt id="RFC4949">[RFC4949]</dt>
+<dd>
+<span class="refAuthor">Shirey, R.</span>, <span class="refTitle">"Internet Security Glossary, Version 2"</span>, <span class="seriesInfo">FYI 36</span>, <span class="seriesInfo">RFC 4949</span>, <span class="seriesInfo">DOI 10.17487/RFC4949</span>, <time datetime="2007-08">August 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc4949">https://www.rfc-editor.org/info/rfc4949</a>&gt;</span>. </dd>
 <dt id="Webauthn">[Webauthn]</dt>
 <dd>
 <span class="refAuthor">Worldwide Web Consortium</span>, <span class="refTitle">"Web Authentication: A Web API for accessing scoped credentials"</span>, <time datetime="2016">2016</time>. </dd>
