@@ -5,11 +5,11 @@
 RATS Working Group                                            G. Mandyam
 Internet-Draft                                Qualcomm Technologies Inc.
 Intended status: Standards Track                            L. Lundblade
-Expires: 22 August 2020                              Security Theory LLC
+Expires: 23 August 2020                              Security Theory LLC
                                                           M. Ballesteros
                                                            J. O'Donoghue
                                               Qualcomm Technologies Inc.
-                                                        19 February 2020
+                                                        20 February 2020
 
 
                    The Entity Attestation Token (EAT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 August 2020.
+   This Internet-Draft will expire on 23 August 2020.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Mandyam, et al.          Expires 22 August 2020                 [Page 1]
+Mandyam, et al.          Expires 23 August 2020                 [Page 1]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Mandyam, et al.          Expires 22 August 2020                 [Page 2]
+Mandyam, et al.          Expires 23 August 2020                 [Page 2]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -152,12 +152,12 @@ Internet-Draft                     EAT                     February 2020
      A.2.  Example with Submodules, Nesting and Security Levels  . .  29
    Appendix B.  UEID Design Rationale  . . . . . . . . . . . . . . .  30
      B.1.  Collision Probability . . . . . . . . . . . . . . . . . .  30
-     B.2.  No Use of UUID  . . . . . . . . . . . . . . . . . . . . .  33
-   Appendix C.  Changes from Previous Drafts . . . . . . . . . . . .  34
-     C.1.  From draft-rats-eat-01  . . . . . . . . . . . . . . . . .  34
-     C.2.  From draft-mandyam-rats-eat-00  . . . . . . . . . . . . .  34
-     C.3.  From draft-ietf-rats-eat-01 . . . . . . . . . . . . . . .  34
-     C.4.  From draft-ietf-rats-eat-02 . . . . . . . . . . . . . . .  34
+     B.2.  No Use of UUID  . . . . . . . . . . . . . . . . . . . . .  32
+   Appendix C.  Changes from Previous Drafts . . . . . . . . . . . .  33
+     C.1.  From draft-rats-eat-01  . . . . . . . . . . . . . . . . .  33
+     C.2.  From draft-mandyam-rats-eat-00  . . . . . . . . . . . . .  33
+     C.3.  From draft-ietf-rats-eat-01 . . . . . . . . . . . . . . .  33
+     C.4.  From draft-ietf-rats-eat-02 . . . . . . . . . . . . . . .  33
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  34
 
 
@@ -165,7 +165,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                 [Page 3]
+Mandyam, et al.          Expires 23 August 2020                 [Page 3]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -221,7 +221,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                 [Page 4]
+Mandyam, et al.          Expires 23 August 2020                 [Page 4]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -277,7 +277,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                 [Page 5]
+Mandyam, et al.          Expires 23 August 2020                 [Page 5]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -333,7 +333,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                 [Page 6]
+Mandyam, et al.          Expires 23 August 2020                 [Page 6]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -389,7 +389,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                 [Page 7]
+Mandyam, et al.          Expires 23 August 2020                 [Page 7]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -445,7 +445,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                 [Page 8]
+Mandyam, et al.          Expires 23 August 2020                 [Page 8]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -472,10 +472,15 @@ Internet-Draft                     EAT                     February 2020
    already-registered JWT nonce, but it should follow this size
    recommendation when used in an EAT.
 
+   Multiple nonces are allowed to accommodate multistage verification
+   and consumption.
+
 3.3.1.  nonce CDDL
 
+   nonce-type = [ + bstr .size (8..64) ]
+
    nonce-claim = (
-       nonce => bstr .size (8..64)
+       nonce => nonce-type
    )
 
 3.4.  Universal Entity ID Claim (ueid)
@@ -493,18 +498,19 @@ Internet-Draft                     EAT                     February 2020
    protocols and systems.  No two products anywhere, even in completely
    different industries made by two different manufacturers in two
    different countries should have the same UEID (if they are not global
+
+
+
+Mandyam, et al.          Expires 23 August 2020                 [Page 9]
+
+Internet-Draft                     EAT                     February 2020
+
+
    and universal in this way, then relying parties receiving them will
    have to track other characteristics of the device to keep devices
    distinct between manufacturers).
 
    There are privacy considerations for UEID's.  See Section 6.1.
-
-
-
-Mandyam, et al.          Expires 22 August 2020                 [Page 9]
-
-Internet-Draft                     EAT                     February 2020
-
 
    The UEID should be permanent.  It should never change for a given
    device / entity.  In addition, it should not be reprogrammable.
@@ -551,13 +557,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-
-
-
-
-
-
-Mandyam, et al.          Expires 22 August 2020                [Page 10]
+Mandyam, et al.          Expires 23 August 2020                [Page 10]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -613,7 +613,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 11]
+Mandyam, et al.          Expires 23 August 2020                [Page 11]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -669,7 +669,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 12]
+Mandyam, et al.          Expires 23 August 2020                [Page 12]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -725,7 +725,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 13]
+Mandyam, et al.          Expires 23 August 2020                [Page 13]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -781,7 +781,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 14]
+Mandyam, et al.          Expires 23 August 2020                [Page 14]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -837,7 +837,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 15]
+Mandyam, et al.          Expires 23 August 2020                [Page 15]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -893,7 +893,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 16]
+Mandyam, et al.          Expires 23 August 2020                [Page 16]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -949,7 +949,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 17]
+Mandyam, et al.          Expires 23 August 2020                [Page 17]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1005,7 +1005,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 18]
+Mandyam, et al.          Expires 23 August 2020                [Page 18]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1061,7 +1061,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 19]
+Mandyam, et al.          Expires 23 August 2020                [Page 19]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1117,7 +1117,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 20]
+Mandyam, et al.          Expires 23 August 2020                [Page 20]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1173,7 +1173,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 21]
+Mandyam, et al.          Expires 23 August 2020                [Page 21]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1229,7 +1229,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 22]
+Mandyam, et al.          Expires 23 August 2020                [Page 22]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1285,7 +1285,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 23]
+Mandyam, et al.          Expires 23 August 2020                [Page 23]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1341,7 +1341,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 24]
+Mandyam, et al.          Expires 23 August 2020                [Page 24]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1386,18 +1386,18 @@ Internet-Draft                     EAT                     February 2020
    As stated in Section 8 of [RFC8392], "The security of the CWT relies
    upon on the protections offered by COSE".  Similar considerations
    apply to EAT when sent as a CWT.  However, EAT introduces the concept
-   of a nonce (to be specifically carried via a 'cti' claim) to protect
-   against replay.  Since an EAT may be created by an entity that may
-   not support the same type of transport security as the consumer of
-   the EAT, intermediaries may be required to bridge communications
-   between the entity and consumer.  As a result, it is RECOMMENDED that
-   both the consumer create a nonce, and the entity leverage the nonce
-   along with COSE mechanisms for encryption and/or signing to create
-   the EAT.
+   of a nonce to protect against replay.  Since an EAT may be created by
+   an entity that may not support the same type of transport security as
+   the consumer of the EAT, intermediaries may be required to bridge
+   communications between the entity and consumer.  As a result, it is
+   RECOMMENDED that both the consumer create a nonce, and the entity
+   leverage the nonce along with COSE mechanisms for encryption and/or
+   signing to create the EAT.
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 25]
+
+Mandyam, et al.          Expires 23 August 2020                [Page 25]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1453,7 +1453,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 26]
+Mandyam, et al.          Expires 23 August 2020                [Page 26]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1509,7 +1509,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 27]
+Mandyam, et al.          Expires 23 August 2020                [Page 27]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1565,7 +1565,7 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.          Expires 22 August 2020                [Page 28]
+Mandyam, et al.          Expires 23 August 2020                [Page 28]
 
 Internet-Draft                     EAT                     February 2020
 
@@ -1585,75 +1585,46 @@ A.1.  Very Simple EAT
    COSE is shown.
 
    {
-      / nonce (cti) /            7:h'948f8860d13a463e8e',
-      / UEID /                   8:h'0198f50a4ff6c05861c8860d13a638ea4fe2f',
+      / nonce /                  9:h'948f8860d13a463e8e',
+      / UEID /                  10:h'0198f50a4ff6c05861c8860d13a638ea4fe2f',
       / boot-state /            12:{true, true, true, true, false}
       / time stamp (iat) /       6:1526542894,
    }
 
 A.2.  Example with Submodules, Nesting and Security Levels
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Mandyam, et al.          Expires 22 August 2020                [Page 29]
-
-Internet-Draft                     EAT                     February 2020
-
-
    {
-      / nonce /                  7:h'948f8860d13a463e8e',
-      / UEID /                   8:h'0198f50a4ff6c05861c8860d13a638ea4fe2f',
+      / nonce /                  9:h'948f8860d13a463e8e',
+      / UEID /                  10:h'0198f50a4ff6c05861c8860d13a638ea4fe2f',
       / boot-state /            12:{true, true, true, true, false}
       / time stamp (iat) /       6:1526542894,
       / seclevel /              11:3, / secure restricted OS /
 
       / submods / 17:
-         [
-            / 1st submod, an Android Application / {
-              / submod-name /   18:'Android App "Foo"',
-              / seclevel /      11:1, / unrestricted /
-              / app data /  -70000:'text string'
+         {
+            / first submod, an Android Application / "Android App Foo" :  {
+               / seclevel /      11:1, / unrestricted /
+               / app data /  -70000:'text string'
             },
-            / 2nd submod, A nested EAT from a secure element / {
-              / submod-name / 18:'Secure Element EAT',
-              / eat /         16:61( 18(
-                 / an embedded EAT / [ /...COSE-Sign1 bytes with payload.../ ]
+            / 2nd submod, A nested EAT from a secure element / "Secure Element Eat" :
+               / eat /         61( 18(
+                                   / an embedded EAT, bytes of which are not shown /
                               ))
+            / 3rd submod, information about Linux Android / "Linux Android": {
+               / seclevel /              11:1, / unrestricted /
+               / custom - release /  -80000:'8.0.0',
+               / custom - version /  -80001:'4.9.51+'
             }
-            / 3rd submod, information about Linux Android / {
-               / submod-name/ 18:'Linux Android',
-               / seclevel /   11:1, / unrestricted /
-               / custom - release / -80000:'8.0.0',
-               / custom - version / -80001:'4.9.51+'
-            }
-         ]
+         }
    }
+
+
+
+
+Mandyam, et al.          Expires 23 August 2020                [Page 29]
+
+Internet-Draft                     EAT                     February 2020
+
 
 Appendix B.  UEID Design Rationale
 
@@ -1674,14 +1645,6 @@ B.1.  Collision Probability
 
    The trillion-record database size models an easy-to-imagine reality
    over the next decades.  The quadrillion-record database is roughly at
-
-
-
-Mandyam, et al.          Expires 22 August 2020                [Page 30]
-
-Internet-Draft                     EAT                     February 2020
-
-
    the limit of what is imaginable and should probably be accommodated.
    The 100 quadrillion datadbase is highly speculative perhaps involving
    nanorobots for every person, livestock animal and domesticated bird.
@@ -1710,6 +1673,15 @@ Internet-Draft                     EAT                     February 2020
 
    This is conceptually similar to the Birthday Problem where m is the
    number of possible birthdays, always 365, and k is the number of
+
+
+
+
+Mandyam, et al.          Expires 23 August 2020                [Page 30]
+
+Internet-Draft                     EAT                     February 2020
+
+
    people.  It is also conceptually similar to the Birthday Attack where
    collisions of the output of hash functions are considered.
 
@@ -1729,14 +1701,6 @@ Internet-Draft                     EAT                     February 2020
        p = k^2 / 2n
 
    For this calculation:
-
-
-
-
-Mandyam, et al.          Expires 22 August 2020                [Page 31]
-
-Internet-Draft                     EAT                     February 2020
-
 
        p  Collision Probability
        n  Total population based on number of bits in UEID
@@ -1767,6 +1731,13 @@ Internet-Draft                     EAT                     February 2020
    reality this is unlikely as state changes will be the addition or
    deletion of a few records.
 
+
+
+Mandyam, et al.          Expires 23 August 2020                [Page 31]
+
+Internet-Draft                     EAT                     February 2020
+
+
    The following tables gives the time interval until there is a
    probability of a collision based on there being one tenth the number
    of states per year as the number of records in the database.
@@ -1776,23 +1747,6 @@ Internet-Draft                     EAT                     February 2020
      t  Time until a collision
      p  Collision probability for UEID size
      k  Database size
-
-
-
-
-
-
-
-
-
-
-
-
-
-Mandyam, et al.          Expires 22 August 2020                [Page 32]
-
-Internet-Draft                     EAT                     February 2020
-
 
    +---------------------+--------------+--------------+--------------+
    | Database Size       | 128-bit UEID | 192-bit UEID | 256-bit UEID |
@@ -1831,6 +1785,15 @@ B.2.  No Use of UUID
    implementations to construct such random values from multiple sources
    on their own.
 
+
+
+
+
+Mandyam, et al.          Expires 23 August 2020                [Page 32]
+
+Internet-Draft                     EAT                     February 2020
+
+
    Version 4 UUIDs do allow for use of such cryptographic-quality random
    numbers, but do so by mapping into the overall UUID structure of time
    and clock values.  This structure is of no value here yet adds
@@ -1842,14 +1805,6 @@ B.2.  No Use of UUID
    be constructed from identifiers at hand.  UEID takes the view that
    hardware, software and/or manufacturing process directly implement
    UEID in a simple and direct way.  It takes the view that
-
-
-
-Mandyam, et al.          Expires 22 August 2020                [Page 33]
-
-Internet-Draft                     EAT                     February 2020
-
-
    cryptographic quality random number generators are readily available
    as they are implemented in commonly used CPU hardware.
 
@@ -1888,6 +1843,13 @@ C.4.  From draft-ietf-rats-eat-02
 
    *  UEIDs can be one of three lengths, 128, 192 and 256.
 
+
+
+Mandyam, et al.          Expires 23 August 2020                [Page 33]
+
+Internet-Draft                     EAT                     February 2020
+
+
    *  Added appendix justifying UEID design and size.
 
    *  Submods part now includes nested eat tokens so they can be named
@@ -1896,15 +1858,6 @@ C.4.  From draft-ietf-rats-eat-02
    *  Lots of fixes to the CDDL
 
 Authors' Addresses
-
-
-
-
-
-Mandyam, et al.          Expires 22 August 2020                [Page 34]
-
-Internet-Draft                     EAT                     February 2020
-
 
    Giridhar Mandyam
    Qualcomm Technologies Inc.
@@ -1948,13 +1901,4 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-
-
-
-
-
-
-
-
-
-Mandyam, et al.          Expires 22 August 2020                [Page 35]
+Mandyam, et al.          Expires 23 August 2020                [Page 34]
