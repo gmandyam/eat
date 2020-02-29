@@ -1,6 +1,108 @@
 [
 
   {
+    "url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/56",
+    "repository_url": "https://api.github.com/repos/ietf-rats-wg/eat",
+    "labels_url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/56/labels{/name}",
+    "comments_url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/56/comments",
+    "events_url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/56/events",
+    "html_url": "https://github.com/ietf-rats-wg/eat/pull/56",
+    "id": 572735660,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzgxMzczNzA2",
+    "number": 56,
+    "title": "Fix sentences describing Major type 2 and other types",
+    "user": {
+      "login": "puiterwijk",
+      "id": 967561,
+      "node_id": "MDQ6VXNlcjk2NzU2MQ==",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/967561?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/puiterwijk",
+      "html_url": "https://github.com/puiterwijk",
+      "followers_url": "https://api.github.com/users/puiterwijk/followers",
+      "following_url": "https://api.github.com/users/puiterwijk/following{/other_user}",
+      "gists_url": "https://api.github.com/users/puiterwijk/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/puiterwijk/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/puiterwijk/subscriptions",
+      "organizations_url": "https://api.github.com/users/puiterwijk/orgs",
+      "repos_url": "https://api.github.com/users/puiterwijk/repos",
+      "events_url": "https://api.github.com/users/puiterwijk/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/puiterwijk/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2020-02-28T12:48:51Z",
+    "updated_at": "2020-02-28T12:48:51Z",
+    "closed_at": null,
+    "author_association": "FIRST_TIME_CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/ietf-rats-wg/eat/pulls/56",
+      "html_url": "https://github.com/ietf-rats-wg/eat/pull/56",
+      "diff_url": "https://github.com/ietf-rats-wg/eat/pull/56.diff",
+      "patch_url": "https://github.com/ietf-rats-wg/eat/pull/56.patch"
+    },
+    "body": ""
+  },
+  {
+    "url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/55",
+    "repository_url": "https://api.github.com/repos/ietf-rats-wg/eat",
+    "labels_url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/55/labels{/name}",
+    "comments_url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/55/comments",
+    "events_url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/55/events",
+    "html_url": "https://github.com/ietf-rats-wg/eat/issues/55",
+    "id": 572278661,
+    "node_id": "MDU6SXNzdWU1NzIyNzg2NjE=",
+    "number": 55,
+    "title": "Clarify on seclevel/security-level in example",
+    "user": {
+      "login": "gmandyam",
+      "id": 2521531,
+      "node_id": "MDQ6VXNlcjI1MjE1MzE=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2521531?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/gmandyam",
+      "html_url": "https://github.com/gmandyam",
+      "followers_url": "https://api.github.com/users/gmandyam/followers",
+      "following_url": "https://api.github.com/users/gmandyam/following{/other_user}",
+      "gists_url": "https://api.github.com/users/gmandyam/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/gmandyam/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/gmandyam/subscriptions",
+      "organizations_url": "https://api.github.com/users/gmandyam/orgs",
+      "repos_url": "https://api.github.com/users/gmandyam/repos",
+      "events_url": "https://api.github.com/users/gmandyam/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/gmandyam/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2020-02-27T18:42:27Z",
+    "updated_at": "2020-02-27T18:42:27Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "Re:  https://tools.ietf.org/html/draft-ietf-rats-eat-03#appendix-A.2\r\n\r\n'seclevel' is showing up in the example.  Two issues:\r\n\r\na) seclevel is actually security-level in the current doc.\r\n\r\nb) For a submod is not providing attestation info in the form of an (endorsed) EAT, is there any value in providing security-level?  If it is there, what entity is performing the security level assessment?"
+  },
+  {
     "url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/54",
     "repository_url": "https://api.github.com/repos/ietf-rats-wg/eat",
     "labels_url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/54/labels{/name}",
@@ -943,7 +1045,7 @@
     "milestone": null,
     "comments": 9,
     "created_at": "2019-10-11T18:30:31Z",
-    "updated_at": "2020-01-15T21:53:44Z",
+    "updated_at": "2020-02-29T16:01:19Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -1451,7 +1553,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "2 reasons:\r\n\r\na) Neither RFC 8392 (CWT) nor RFC 7519 (JWT) have operational models.  Since EAT is derived from these specifications, it would be desirable to maintain consistency.\r\n\r\nb) This topic is better covered in an architecture specification. "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/26",
     "repository_url": "https://api.github.com/repos/ietf-rats-wg/eat",
@@ -1547,10 +1652,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Sec.'s 3.7.3, 3.7.4 and 3.7.5 start out with the term \"this claim\".  These are actually not claims as per the definition in Sec. 3.7, but boolean values included in the boot_state claim.    "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/ietf-rats-wg/eat/issues/24",
     "repository_url": "https://api.github.com/repos/ietf-rats-wg/eat",
