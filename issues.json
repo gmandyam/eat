@@ -938,7 +938,15 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 1595669794,
+        "node_id": "MDU6TGFiZWwxNTk1NjY5Nzk0",
+        "url": "https://api.github.com/repos/ietf-rats-wg/eat/labels/ready%20to%20close",
+        "name": "ready to close",
+        "color": "bfdadc",
+        "default": false,
+        "description": ""
+      }
     ],
     "state": "open",
     "locked": false,
@@ -947,9 +955,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-10-16T15:57:03Z",
-    "updated_at": "2019-10-16T15:57:03Z",
+    "updated_at": "2020-02-29T16:59:15Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Need references to IEEE OUI and to fill in details"
@@ -986,7 +994,15 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 1595669794,
+        "node_id": "MDU6TGFiZWwxNTk1NjY5Nzk0",
+        "url": "https://api.github.com/repos/ietf-rats-wg/eat/labels/ready%20to%20close",
+        "name": "ready to close",
+        "color": "bfdadc",
+        "default": false,
+        "description": ""
+      }
     ],
     "state": "open",
     "locked": false,
@@ -995,9 +1011,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-10-16T15:54:41Z",
-    "updated_at": "2019-10-16T15:54:41Z",
+    "updated_at": "2020-02-29T17:02:46Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Which CWT / JWT field is really the nonce?"
@@ -1045,7 +1061,7 @@
     "milestone": null,
     "comments": 9,
     "created_at": "2019-10-11T18:30:31Z",
-    "updated_at": "2020-02-29T16:01:19Z",
+    "updated_at": "2020-03-02T04:18:23Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -1530,15 +1546,7 @@
       "site_admin": false
     },
     "labels": [
-      {
-        "id": 1595669794,
-        "node_id": "MDU6TGFiZWwxNTk1NjY5Nzk0",
-        "url": "https://api.github.com/repos/ietf-rats-wg/eat/labels/ready%20to%20close",
-        "name": "ready to close",
-        "color": "bfdadc",
-        "default": false,
-        "description": ""
-      }
+
     ],
     "state": "open",
     "locked": false,
@@ -1549,7 +1557,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-08-08T00:37:34Z",
-    "updated_at": "2019-10-04T16:21:32Z",
+    "updated_at": "2020-02-29T16:58:09Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "2 reasons:\r\n\r\na) Neither RFC 8392 (CWT) nor RFC 7519 (JWT) have operational models.  Since EAT is derived from these specifications, it would be desirable to maintain consistency.\r\n\r\nb) This topic is better covered in an architecture specification. "
@@ -1637,7 +1645,15 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 1595669794,
+        "node_id": "MDU6TGFiZWwxNTk1NjY5Nzk0",
+        "url": "https://api.github.com/repos/ietf-rats-wg/eat/labels/ready%20to%20close",
+        "name": "ready to close",
+        "color": "bfdadc",
+        "default": false,
+        "description": ""
+      }
     ],
     "state": "open",
     "locked": false,
@@ -1646,9 +1662,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-08-08T00:27:48Z",
-    "updated_at": "2019-10-04T16:34:09Z",
+    "updated_at": "2020-02-29T16:49:06Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Sec.'s 3.7.3, 3.7.4 and 3.7.5 start out with the term \"this claim\".  These are actually not claims as per the definition in Sec. 3.7, but boolean values included in the boot_state claim.    "
@@ -1789,7 +1805,15 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 1595669794,
+        "node_id": "MDU6TGFiZWwxNTk1NjY5Nzk0",
+        "url": "https://api.github.com/repos/ietf-rats-wg/eat/labels/ready%20to%20close",
+        "name": "ready to close",
+        "color": "bfdadc",
+        "default": false,
+        "description": ""
+      }
     ],
     "state": "open",
     "locked": false,
@@ -1800,7 +1824,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-07-21T16:45:47Z",
-    "updated_at": "2019-10-04T17:48:24Z",
+    "updated_at": "2020-02-29T16:49:37Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Sec. 2.2.2 of RFC 8610 allows for a choice expression based on a '/' delimiter between options.  In order to avoid expression of potentially conflicting debug disable states (e.g. debug full permanent disable being true while debug disabled since boot being false), this could be an alternative."
@@ -1837,7 +1861,15 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 1595669794,
+        "node_id": "MDU6TGFiZWwxNTk1NjY5Nzk0",
+        "url": "https://api.github.com/repos/ietf-rats-wg/eat/labels/ready%20to%20close",
+        "name": "ready to close",
+        "color": "bfdadc",
+        "default": false,
+        "description": ""
+      }
     ],
     "state": "open",
     "locked": false,
@@ -1846,9 +1878,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 3,
     "created_at": "2019-07-21T16:15:51Z",
-    "updated_at": "2019-07-22T18:42:49Z",
+    "updated_at": "2020-02-29T16:57:39Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Current text (-01) does not state assumptions on rand generation that would be necessary to minimize the probability of collisions from different manufacturers.  This could be added to the Security Considerations section."
@@ -2093,15 +2125,7 @@
       "site_admin": false
     },
     "labels": [
-      {
-        "id": 1595669794,
-        "node_id": "MDU6TGFiZWwxNTk1NjY5Nzk0",
-        "url": "https://api.github.com/repos/ietf-rats-wg/eat/labels/ready%20to%20close",
-        "name": "ready to close",
-        "color": "bfdadc",
-        "default": false,
-        "description": ""
-      }
+
     ],
     "state": "open",
     "locked": false,
@@ -2112,7 +2136,7 @@
     "milestone": null,
     "comments": 9,
     "created_at": "2019-07-16T10:15:16Z",
-    "updated_at": "2019-10-04T21:44:49Z",
+    "updated_at": "2020-02-29T17:03:42Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "In section 1.2, it seems odd that the definition of the term \"entity\" is limited to things that implement this draft. The last sentence of this section and the definition of \"The Entity\" in section 1.3 bear this out. Generally, 'entity' is used pretty loosely throughout the draft."
@@ -2293,7 +2317,15 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 1595669794,
+        "node_id": "MDU6TGFiZWwxNTk1NjY5Nzk0",
+        "url": "https://api.github.com/repos/ietf-rats-wg/eat/labels/ready%20to%20close",
+        "name": "ready to close",
+        "color": "bfdadc",
+        "default": false,
+        "description": ""
+      }
     ],
     "state": "open",
     "locked": false,
@@ -2302,9 +2334,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2019-07-03T20:12:32Z",
-    "updated_at": "2019-10-07T04:18:23Z",
+    "updated_at": "2020-02-29T16:51:15Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Ben commented that 128 bits is not enough. Is my analysis correct?\r\n\r\n128 bits (16 bytes) is enough for one trillion humans to each have one trillion devices and the probability of collision less than a trillion (log base 10 of 2^ 128 = 38; log base 10 of a trillion is 12; 3 * 12 < 38) So 128 bits seems like enough, but take it out to 256 bits because SHA-256 is popular and good and there is some extra margin."
