@@ -5,11 +5,11 @@
 RATS Working Group                                            G. Mandyam
 Internet-Draft                                Qualcomm Technologies Inc.
 Intended status: Standards Track                            L. Lundblade
-Expires: 1 September 2020                            Security Theory LLC
+Expires: 3 September 2020                            Security Theory LLC
                                                           M. Ballesteros
                                                            J. O'Donoghue
                                               Qualcomm Technologies Inc.
-                                                        29 February 2020
+                                                            2 March 2020
 
 
                    The Entity Attestation Token (EAT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 September 2020.
+   This Internet-Draft will expire on 3 September 2020.
 
 
 
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-Mandyam, et al.         Expires 1 September 2020                [Page 1]
+Mandyam, et al.         Expires 3 September 2020                [Page 1]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
 Copyright Notice
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Mandyam, et al.         Expires 1 September 2020                [Page 2]
+Mandyam, et al.         Expires 3 September 2020                [Page 2]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
        3.10.1.  CDDL . . . . . . . . . . . . . . . . . . . . . . . .  17
@@ -165,9 +165,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020                [Page 3]
+Mandyam, et al.         Expires 3 September 2020                [Page 3]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    protect the data.  This generalizes on to corporate enterprises that
@@ -221,9 +221,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020                [Page 4]
+Mandyam, et al.         Expires 3 September 2020                [Page 4]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    apps.  It may also have a TEE (Trusted Execution Environment) that is
@@ -277,9 +277,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020                [Page 5]
+Mandyam, et al.         Expires 3 September 2020                [Page 5]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    *  The EAT is transmitted directly to a verification service, perhaps
@@ -333,9 +333,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020                [Page 6]
+Mandyam, et al.         Expires 3 September 2020                [Page 6]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
 1.4.2.  Signing Scheme
@@ -389,9 +389,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020                [Page 7]
+Mandyam, et al.         Expires 3 September 2020                [Page 7]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
       DevID [IDevID], then this is the private part of the EC key pair.
@@ -417,9 +417,9 @@ Internet-Draft                     EAT                     February 2020
 
    There are no default values or meanings assigned to absent claims
    other than they are not reported.  The reason for a claim's absence
-   may the implementation not supporting the claim, inability to
+   may be the implementation not supporting the claim, an inability to
    determine its value, or a preference to report in a different way
-   such as proprietary claim.
+   such as a proprietary claim.
 
    CDDL along with text descriptions is used to define the information
    model.  Each claim is defined as a CDDL group (the group is a general
@@ -445,9 +445,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020                [Page 8]
+Mandyam, et al.         Expires 3 September 2020                [Page 8]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
 3.2.  Timestamp claim (iat)
@@ -501,9 +501,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020                [Page 9]
+Mandyam, et al.         Expires 3 September 2020                [Page 9]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    |      |        | and then feeding the concatenation through a      |
@@ -557,9 +557,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 10]
+Mandyam, et al.         Expires 3 September 2020               [Page 10]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    a type 0x02 UEID to identify the manufacturer of the device.  Instead
@@ -613,9 +613,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 11]
+Mandyam, et al.         Expires 3 September 2020               [Page 11]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    TODO: This needs refinement.  It is somewhat parallel to issuer claim
@@ -669,9 +669,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 12]
+Mandyam, et al.         Expires 3 September 2020               [Page 12]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
       security orientation.  Examples include a Wi-Fi subsystem, an IoT
@@ -725,9 +725,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 13]
+Mandyam, et al.         Expires 3 September 2020               [Page 13]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
 3.7.1.  Secure Boot Enabled
@@ -781,9 +781,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 14]
+Mandyam, et al.         Expires 3 September 2020               [Page 14]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    The architecture of some chips or devices may be such that a debug
@@ -837,9 +837,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 15]
+Mandyam, et al.         Expires 3 September 2020               [Page 15]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    debug_disable_level = (
@@ -893,9 +893,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 16]
+Mandyam, et al.         Expires 3 September 2020               [Page 16]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
 3.9.  The Age Claim (age)
@@ -949,9 +949,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 17]
+Mandyam, et al.         Expires 3 September 2020               [Page 17]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
 3.12.  The Submods Claim (submods)
@@ -1005,9 +1005,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 18]
+Mandyam, et al.         Expires 3 September 2020               [Page 18]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
 4.1.  Common CDDL Types
@@ -1061,9 +1061,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 19]
+Mandyam, et al.         Expires 3 September 2020               [Page 19]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
 4.3.  JSON
@@ -1117,9 +1117,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 20]
+Mandyam, et al.         Expires 3 September 2020               [Page 20]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    ueid = 8
@@ -1173,9 +1173,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 21]
+Mandyam, et al.         Expires 3 September 2020               [Page 21]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
       may also encode the lengths of strings in any way allowed by CBOR.
@@ -1229,9 +1229,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 22]
+Mandyam, et al.         Expires 3 September 2020               [Page 22]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    eat_claims = {  ; the top-level payload that is signed using COSE or JOSE
@@ -1285,9 +1285,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 23]
+Mandyam, et al.         Expires 3 September 2020               [Page 23]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
 6.  Privacy Considerations
@@ -1341,9 +1341,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 24]
+Mandyam, et al.         Expires 3 September 2020               [Page 24]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
 7.  Security Considerations
@@ -1397,9 +1397,9 @@ Internet-Draft                     EAT                     February 2020
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 25]
+Mandyam, et al.         Expires 3 September 2020               [Page 25]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    [RFC8610]  Birkholz, H., Vigano, C., and C. Bormann, "Concise Data
@@ -1453,9 +1453,9 @@ A.1.  Very Simple EAT
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 26]
+Mandyam, et al.         Expires 3 September 2020               [Page 26]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    {
@@ -1509,9 +1509,9 @@ B.1.  From draft-mandyam-rats-eat-00
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 27]
+Mandyam, et al.         Expires 3 September 2020               [Page 27]
 
-Internet-Draft                     EAT                     February 2020
+Internet-Draft                     EAT                        March 2020
 
 
    *  Separate information and data model using CDDL.
@@ -1565,4 +1565,4 @@ Authors' Addresses
 
 
 
-Mandyam, et al.         Expires 1 September 2020               [Page 28]
+Mandyam, et al.         Expires 3 September 2020               [Page 28]
