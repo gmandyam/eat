@@ -202,6 +202,9 @@ a[href]:hover {
 a[href].selfRef:hover {
   background-color: var(--highlight-color);
 }
+a.xref {
+  white-space: nowrap;
+}
 
 /* Figures */
 tt, code, pre {
@@ -394,6 +397,9 @@ hr {
   padding-left: 1.2em;
   text-indent: -1.2em;
 }
+#toc a.xref {
+  white-space: normal;
+}
 /* references */
 .references dt {
   text-align: right;
@@ -471,7 +477,7 @@ hr.addr {
   max-width: calc(100% - 16px);
 }
 @media (min-width: 600px) {
-  #authors-addresses {
+  #authors-addresses > section {
     display: relative;
     padding: 32px 0 0;
     column-count: 2;
@@ -485,6 +491,7 @@ hr.addr {
   /* hack for break-inside: avoid-column */
   #authors-addresses address {
     display: inline-block;
+    break-inside: avoid-column;
   }
 }
 
@@ -521,7 +528,7 @@ hr.addr {
     padding: 0;
     margin: 0;
     border-bottom: 1px solid #ccc;
-    opacity: 0.9; /* TODO fix when Henrik takes the patch. */
+    opacity: 0.6;
   }
   #toc.active {
       opacity: 1;
@@ -823,7 +830,6 @@ table.left {
 <link href="rfc-local.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<script src="metadata.min.js"></script>
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
@@ -832,7 +838,7 @@ table.left {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mandyam, et al.</td>
-<td class="center">Expires 3 September 2020</td>
+<td class="center">Expires 20 September 2020</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -845,12 +851,12 @@ table.left {
 <dd class="internet-draft">draft-ietf-rats-eat-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2020-03-02" class="published">2 March 2020</time>
+<time datetime="2020-03-19" class="published">19 March 2020</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2020-09-03">3 September 2020</time></dd>
+<dd class="expires"><time datetime="2020-09-20">20 September 2020</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -908,7 +914,7 @@ CWT and JWT.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 3 September 2020.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 20 September 2020.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -966,119 +972,141 @@ CWT and JWT.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
             <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-terminology" class="xref">Terminology</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-the-claims-information-mode" class="xref">The Claims Information Model</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-the-claims" class="xref">The Claims</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-nonce-claim-cti-and-jti" class="xref">Nonce Claim (cti and jti)</a><a href="#section-toc.1-1.3.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-token-id-claim-cti-and-jti" class="xref">Token ID Claim (cti and jti)</a><a href="#section-toc.1-1.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.2">
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-timestamp-claim-iat" class="xref">Timestamp claim (iat)</a><a href="#section-toc.1-1.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="xref">3.3</a>.  <a href="#name-universal-entity-id-claim-u" class="xref">Universal Entity ID Claim (ueid)</a><a href="#section-toc.1-1.3.2.3.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="xref">3.3</a>.  <a href="#name-nonce-claim-nonce" class="xref">Nonce Claim (nonce)</a><a href="#section-toc.1-1.3.2.3.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.3.2.1">
-                    <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="xref">3.3.1</a>.  <a href="#name-cddl" class="xref">CDDL</a><a href="#section-toc.1-1.3.2.3.2.1.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="xref">3.3.1</a>.  <a href="#name-nonce-cddl" class="xref">nonce CDDL</a><a href="#section-toc.1-1.3.2.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.4">
-                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="xref">3.4</a>.  <a href="#name-origination-claim-originati" class="xref">Origination Claim (origination)</a><a href="#section-toc.1-1.3.2.4.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="xref">3.4</a>.  <a href="#name-universal-entity-id-claim-u" class="xref">Universal Entity ID Claim (ueid)</a><a href="#section-toc.1-1.3.2.4.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.4.2.1">
-                    <p id="section-toc.1-1.3.2.4.2.1.1"><a href="#section-3.4.1" class="xref">3.4.1</a>.  <a href="#name-cddl-2" class="xref">CDDL</a><a href="#section-toc.1-1.3.2.4.2.1.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.3.2.4.2.1.1"><a href="#section-3.4.1" class="xref">3.4.1</a>.  <a href="#name-ueid-cddl" class="xref">ueid CDDL</a><a href="#section-toc.1-1.3.2.4.2.1.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.5">
-                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="xref">3.5</a>.  <a href="#name-oem-identification-by-ieee-" class="xref">OEM identification by IEEE OUI (oemid)</a><a href="#section-toc.1-1.3.2.5.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="xref">3.5</a>.  <a href="#name-origination-claim-originati" class="xref">Origination Claim (origination)</a><a href="#section-toc.1-1.3.2.5.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.5.2.1">
-                    <p id="section-toc.1-1.3.2.5.2.1.1"><a href="#section-3.5.1" class="xref">3.5.1</a>.  <a href="#name-cddl-3" class="xref">CDDL</a><a href="#section-toc.1-1.3.2.5.2.1.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.3.2.5.2.1.1"><a href="#section-3.5.1" class="xref">3.5.1</a>.  <a href="#name-origination-cddl" class="xref">origination CDDL</a><a href="#section-toc.1-1.3.2.5.2.1.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.6">
-                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="xref">3.6</a>.  <a href="#name-the-security-level-claim-se" class="xref">The Security Level Claim (security_level)</a><a href="#section-toc.1-1.3.2.6.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="xref">3.6</a>.  <a href="#name-oem-identification-by-ieee-" class="xref">OEM Identification by IEEE (oemid)</a><a href="#section-toc.1-1.3.2.6.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.6.2.1">
-                    <p id="section-toc.1-1.3.2.6.2.1.1"><a href="#section-3.6.1" class="xref">3.6.1</a>.  <a href="#name-cddl-4" class="xref">CDDL</a><a href="#section-toc.1-1.3.2.6.2.1.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.3.2.6.2.1.1"><a href="#section-3.6.1" class="xref">3.6.1</a>.  <a href="#name-oemid-cddl" class="xref">oemid CDDL</a><a href="#section-toc.1-1.3.2.6.2.1.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.7">
-                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="xref">3.7</a>.  <a href="#name-secure-boot-and-debug-enabl" class="xref">Secure Boot and Debug Enable State Claims (boot_state)</a><a href="#section-toc.1-1.3.2.7.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="xref">3.7</a>.  <a href="#name-the-security-level-claim-se" class="xref">The Security Level Claim (security-level)</a><a href="#section-toc.1-1.3.2.7.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.7.2.1">
-                    <p id="section-toc.1-1.3.2.7.2.1.1"><a href="#section-3.7.1" class="xref">3.7.1</a>.  <a href="#name-secure-boot-enabled" class="xref">Secure Boot Enabled</a><a href="#section-toc.1-1.3.2.7.2.1.1" class="pilcrow">¶</a></p>
-</li>
-<li class="toc ulEmpty" id="section-toc.1-1.3.2.7.2.2">
-                    <p id="section-toc.1-1.3.2.7.2.2.1"><a href="#section-3.7.2" class="xref">3.7.2</a>.  <a href="#name-debug-disable-level" class="xref">Debug Disable Level</a><a href="#section-toc.1-1.3.2.7.2.2.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.3.2.7.2.2.2.1">
-                        <p id="section-toc.1-1.3.2.7.2.2.2.1.1"><a href="#section-3.7.2.1" class="xref">3.7.2.1</a>.  <a href="#name-not-disabled" class="xref">Not Disabled</a><a href="#section-toc.1-1.3.2.7.2.2.2.1.1" class="pilcrow">¶</a></p>
-</li>
-<li class="toc ulEmpty" id="section-toc.1-1.3.2.7.2.2.2.2">
-                        <p id="section-toc.1-1.3.2.7.2.2.2.2.1"><a href="#section-3.7.2.2" class="xref">3.7.2.2</a>.  <a href="#name-disabled" class="xref">Disabled</a><a href="#section-toc.1-1.3.2.7.2.2.2.2.1" class="pilcrow">¶</a></p>
-</li>
-<li class="toc ulEmpty" id="section-toc.1-1.3.2.7.2.2.2.3">
-                        <p id="section-toc.1-1.3.2.7.2.2.2.3.1"><a href="#section-3.7.2.3" class="xref">3.7.2.3</a>.  <a href="#name-disabled-since-boot" class="xref">Disabled Since Boot</a><a href="#section-toc.1-1.3.2.7.2.2.2.3.1" class="pilcrow">¶</a></p>
-</li>
-<li class="toc ulEmpty" id="section-toc.1-1.3.2.7.2.2.2.4">
-                        <p id="section-toc.1-1.3.2.7.2.2.2.4.1"><a href="#section-3.7.2.4" class="xref">3.7.2.4</a>.  <a href="#name-permanent-disable" class="xref">Permanent Disable</a><a href="#section-toc.1-1.3.2.7.2.2.2.4.1" class="pilcrow">¶</a></p>
-</li>
-<li class="toc ulEmpty" id="section-toc.1-1.3.2.7.2.2.2.5">
-                        <p id="section-toc.1-1.3.2.7.2.2.2.5.1"><a href="#section-3.7.2.5" class="xref">3.7.2.5</a>.  <a href="#name-full-permanent-disable" class="xref">Full Permanent Disable</a><a href="#section-toc.1-1.3.2.7.2.2.2.5.1" class="pilcrow">¶</a></p>
-</li>
-</ul>
-</li>
-<li class="toc ulEmpty" id="section-toc.1-1.3.2.7.2.3">
-                    <p id="section-toc.1-1.3.2.7.2.3.1"><a href="#section-3.7.3" class="xref">3.7.3</a>.  <a href="#name-cddl-5" class="xref">CDDL</a><a href="#section-toc.1-1.3.2.7.2.3.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.3.2.7.2.1.1"><a href="#section-3.7.1" class="xref">3.7.1</a>.  <a href="#name-security-level-cddl" class="xref">security-level CDDL</a><a href="#section-toc.1-1.3.2.7.2.1.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.8">
-                <p id="section-toc.1-1.3.2.8.1"><a href="#section-3.8" class="xref">3.8</a>.  <a href="#name-the-location-claim-location" class="xref">The Location Claim (location)</a><a href="#section-toc.1-1.3.2.8.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.3.2.8.1"><a href="#section-3.8" class="xref">3.8</a>.  <a href="#name-secure-boot-claim-secure-bo" class="xref">Secure Boot Claim (secure-boot)</a><a href="#section-toc.1-1.3.2.8.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.8.2.1">
-                    <p id="section-toc.1-1.3.2.8.2.1.1"><a href="#section-3.8.1" class="xref">3.8.1</a>.  <a href="#name-cddl-6" class="xref">CDDL</a><a href="#section-toc.1-1.3.2.8.2.1.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.3.2.8.2.1.1"><a href="#section-3.8.1" class="xref">3.8.1</a>.  <a href="#name-secure-boot-cddl" class="xref">secure-boot CDDL</a><a href="#section-toc.1-1.3.2.8.2.1.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.9">
-                <p id="section-toc.1-1.3.2.9.1"><a href="#section-3.9" class="xref">3.9</a>.  <a href="#name-the-age-claim-age" class="xref">The Age Claim (age)</a><a href="#section-toc.1-1.3.2.9.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.3.2.9.1"><a href="#section-3.9" class="xref">3.9</a>.  <a href="#name-debug-disable-claim-debug-d" class="xref">Debug Disable Claim (debug-disable)</a><a href="#section-toc.1-1.3.2.9.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.9.2.1">
+                    <p id="section-toc.1-1.3.2.9.2.1.1"><a href="#section-3.9.1" class="xref">3.9.1</a>.  <a href="#name-not-disabled" class="xref">Not Disabled</a><a href="#section-toc.1-1.3.2.9.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.9.2.2">
+                    <p id="section-toc.1-1.3.2.9.2.2.1"><a href="#section-3.9.2" class="xref">3.9.2</a>.  <a href="#name-disabled" class="xref">Disabled</a><a href="#section-toc.1-1.3.2.9.2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.9.2.3">
+                    <p id="section-toc.1-1.3.2.9.2.3.1"><a href="#section-3.9.3" class="xref">3.9.3</a>.  <a href="#name-disabled-since-boot" class="xref">Disabled Since Boot</a><a href="#section-toc.1-1.3.2.9.2.3.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.9.2.4">
+                    <p id="section-toc.1-1.3.2.9.2.4.1"><a href="#section-3.9.4" class="xref">3.9.4</a>.  <a href="#name-permanent-disable" class="xref">Permanent Disable</a><a href="#section-toc.1-1.3.2.9.2.4.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.9.2.5">
+                    <p id="section-toc.1-1.3.2.9.2.5.1"><a href="#section-3.9.5" class="xref">3.9.5</a>.  <a href="#name-full-permanent-disable" class="xref">Full Permanent Disable</a><a href="#section-toc.1-1.3.2.9.2.5.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.9.2.6">
+                    <p id="section-toc.1-1.3.2.9.2.6.1"><a href="#section-3.9.6" class="xref">3.9.6</a>.  <a href="#name-boot-state-cddl" class="xref">boot-state CDDL</a><a href="#section-toc.1-1.3.2.9.2.6.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.10">
-                <p id="section-toc.1-1.3.2.10.1"><a href="#section-3.10" class="xref">3.10</a>. <a href="#name-the-uptime-claim-uptime" class="xref">The Uptime Claim (uptime)</a><a href="#section-toc.1-1.3.2.10.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.3.2.10.1"><a href="#section-3.10" class="xref">3.10</a>. <a href="#name-the-location-claim-location" class="xref">The Location Claim (location)</a><a href="#section-toc.1-1.3.2.10.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.10.2.1">
-                    <p id="section-toc.1-1.3.2.10.2.1.1"><a href="#section-3.10.1" class="xref">3.10.1</a>.  <a href="#name-cddl-7" class="xref">CDDL</a><a href="#section-toc.1-1.3.2.10.2.1.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.3.2.10.2.1.1"><a href="#section-3.10.1" class="xref">3.10.1</a>.  <a href="#name-location-cddl" class="xref">location CDDL</a><a href="#section-toc.1-1.3.2.10.2.1.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.11">
-                <p id="section-toc.1-1.3.2.11.1"><a href="#section-3.11" class="xref">3.11</a>. <a href="#name-nested-eats-the-eat-claim-n" class="xref">Nested EATs, the EAT Claim (nested_eat)</a><a href="#section-toc.1-1.3.2.11.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.3.2.11.1"><a href="#section-3.11" class="xref">3.11</a>. <a href="#name-the-age-claim-age" class="xref">The Age Claim (age)</a><a href="#section-toc.1-1.3.2.11.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.11.2.1">
-                    <p id="section-toc.1-1.3.2.11.2.1.1"><a href="#section-3.11.1" class="xref">3.11.1</a>.  <a href="#name-cddl-8" class="xref">CDDL</a><a href="#section-toc.1-1.3.2.11.2.1.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.3.2.11.2.1.1"><a href="#section-3.11.1" class="xref">3.11.1</a>.  <a href="#name-age-cddl" class="xref">age CDDL</a><a href="#section-toc.1-1.3.2.11.2.1.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.12">
-                <p id="section-toc.1-1.3.2.12.1"><a href="#section-3.12" class="xref">3.12</a>. <a href="#name-the-submods-claim-submods" class="xref">The Submods Claim (submods)</a><a href="#section-toc.1-1.3.2.12.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.3.2.12.1"><a href="#section-3.12" class="xref">3.12</a>. <a href="#name-the-uptime-claim-uptime" class="xref">The Uptime Claim (uptime)</a><a href="#section-toc.1-1.3.2.12.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.3.2.12.2.1">
-                    <p id="section-toc.1-1.3.2.12.2.1.1"><a href="#section-3.12.1" class="xref">3.12.1</a>.  <a href="#name-the-submod_name-claim" class="xref">The submod_name Claim</a><a href="#section-toc.1-1.3.2.12.2.1.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.3.2.12.2.1.1"><a href="#section-3.12.1" class="xref">3.12.1</a>.  <a href="#name-uptime-cddl" class="xref">uptime CDDL</a><a href="#section-toc.1-1.3.2.12.2.1.1" class="pilcrow">¶</a></p>
 </li>
-<li class="toc ulEmpty" id="section-toc.1-1.3.2.12.2.2">
-                    <p id="section-toc.1-1.3.2.12.2.2.1"><a href="#section-3.12.2" class="xref">3.12.2</a>.  <a href="#name-cddl-9" class="xref">CDDL</a><a href="#section-toc.1-1.3.2.12.2.2.1" class="pilcrow">¶</a></p>
+</ul>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.13">
+                <p id="section-toc.1-1.3.2.13.1"><a href="#section-3.13" class="xref">3.13</a>. <a href="#name-the-submods-part-of-a-token" class="xref">The Submods Part of a Token (submods)</a><a href="#section-toc.1-1.3.2.13.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.13.2.1">
+                    <p id="section-toc.1-1.3.2.13.2.1.1"><a href="#section-3.13.1" class="xref">3.13.1</a>.  <a href="#name-two-types-of-submodules" class="xref">Two Types of Submodules</a><a href="#section-toc.1-1.3.2.13.2.1.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.13.2.1.2.1">
+                        <p id="section-toc.1-1.3.2.13.2.1.2.1.1"><a href="#section-3.13.1.1" class="xref">3.13.1.1</a>.  <a href="#name-non-token-submodules" class="xref">Non-token Submodules</a><a href="#section-toc.1-1.3.2.13.2.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.13.2.1.2.2">
+                        <p id="section-toc.1-1.3.2.13.2.1.2.2.1"><a href="#section-3.13.1.2" class="xref">3.13.1.2</a>.  <a href="#name-nested-eats" class="xref">Nested EATs</a><a href="#section-toc.1-1.3.2.13.2.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.13.2.2">
+                    <p id="section-toc.1-1.3.2.13.2.2.1"><a href="#section-3.13.2" class="xref">3.13.2</a>.  <a href="#name-no-inheritance" class="xref">No Inheritance</a><a href="#section-toc.1-1.3.2.13.2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.13.2.3">
+                    <p id="section-toc.1-1.3.2.13.2.3.1"><a href="#section-3.13.3" class="xref">3.13.3</a>.  <a href="#name-security-levels" class="xref">Security Levels</a><a href="#section-toc.1-1.3.2.13.2.3.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.13.2.4">
+                    <p id="section-toc.1-1.3.2.13.2.4.1"><a href="#section-3.13.4" class="xref">3.13.4</a>.  <a href="#name-submodule-names" class="xref">Submodule Names</a><a href="#section-toc.1-1.3.2.13.2.4.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.3.2.13.2.5">
+                    <p id="section-toc.1-1.3.2.13.2.5.1"><a href="#section-3.13.5" class="xref">3.13.5</a>.  <a href="#name-submods-cddl" class="xref">submods CDDL</a><a href="#section-toc.1-1.3.2.13.2.5.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-data-model" class="xref">Data Model</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-encoding" class="xref">Encoding</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.4.2.1">
                 <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-common-cddl-types" class="xref">Common CDDL Types</a><a href="#section-toc.1-1.4.2.1.1" class="pilcrow">¶</a></p>
@@ -1101,7 +1129,7 @@ CWT and JWT.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
                 <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="xref">4.4</a>.  <a href="#name-cbor" class="xref">CBOR</a><a href="#section-toc.1-1.4.2.4.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.4.2.4.2.1">
-                    <p id="section-toc.1-1.4.2.4.2.1.1"><a href="#section-4.4.1" class="xref">4.4.1</a>.  <a href="#name-labels" class="xref">Labels</a><a href="#section-toc.1-1.4.2.4.2.1.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.4.2.4.2.1.1"><a href="#section-4.4.1" class="xref">4.4.1</a>.  <a href="#name-cbor-labels" class="xref">CBOR Labels</a><a href="#section-toc.1-1.4.2.4.2.1.1" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.4.2.4.2.2">
                     <p id="section-toc.1-1.4.2.4.2.2.1"><a href="#section-4.4.2" class="xref">4.4.2</a>.  <a href="#name-cbor-interoperability" class="xref">CBOR Interoperability</a><a href="#section-toc.1-1.4.2.4.2.2.1" class="pilcrow">¶</a></p>
@@ -1136,6 +1164,22 @@ CWT and JWT.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-key-provisioning" class="xref">Key Provisioning</a><a href="#section-toc.1-1.7.2.1.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.7.2.1.2.1">
+                    <p id="section-toc.1-1.7.2.1.2.1.1"><a href="#section-7.1.1" class="xref">7.1.1</a>.  <a href="#name-transmission-of-key-materia" class="xref">Transmission of Key Material</a><a href="#section-toc.1-1.7.2.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-transport-security" class="xref">Transport Security</a><a href="#section-toc.1-1.7.2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.7.2.3">
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="xref">7.3</a>.  <a href="#name-multiple-eat-consumers" class="xref">Multiple EAT Consumers</a><a href="#section-toc.1-1.7.2.3.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.8">
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-references" class="xref">References</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
@@ -1160,15 +1204,38 @@ CWT and JWT.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-appendix.b" class="xref">Appendix B</a>.  <a href="#name-changes-from-previous-draft" class="xref">Changes from Previous Drafts</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-appendix.b" class="xref">Appendix B</a>.  <a href="#name-ueid-design-rationale" class="xref">UEID Design Rationale</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.10.2.1">
-                <p id="section-toc.1-1.10.2.1.1"><a href="#section-b.1" class="xref">B.1</a>.  <a href="#name-from-draft-mandyam-rats-eat" class="xref">From draft-mandyam-rats-eat-00</a><a href="#section-toc.1-1.10.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.10.2.1.1"><a href="#section-b.1" class="xref">B.1</a>.  <a href="#name-collision-probability" class="xref">Collision Probability</a><a href="#section-toc.1-1.10.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.10.2.2">
+                <p id="section-toc.1-1.10.2.2.1"><a href="#section-b.2" class="xref">B.2</a>.  <a href="#name-no-use-of-uuid" class="xref">No Use of UUID</a><a href="#section-toc.1-1.10.2.2.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-appendix.c" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#section-appendix.c" class="xref">Appendix C</a>.  <a href="#name-changes-from-previous-draft" class="xref">Changes from Previous Drafts</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.11.2.1">
+                <p id="section-toc.1-1.11.2.1.1"><a href="#section-c.1" class="xref">C.1</a>.  <a href="#name-from-draft-rats-eat-01" class="xref">From draft-rats-eat-01</a><a href="#section-toc.1-1.11.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.11.2.2">
+                <p id="section-toc.1-1.11.2.2.1"><a href="#section-c.2" class="xref">C.2</a>.  <a href="#name-from-draft-mandyam-rats-eat" class="xref">From draft-mandyam-rats-eat-00</a><a href="#section-toc.1-1.11.2.2.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.11.2.3">
+                <p id="section-toc.1-1.11.2.3.1"><a href="#section-c.3" class="xref">C.3</a>.  <a href="#name-from-draft-ietf-rats-eat-01" class="xref">From draft-ietf-rats-eat-01</a><a href="#section-toc.1-1.11.2.3.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.11.2.4">
+                <p id="section-toc.1-1.11.2.4.1"><a href="#section-c.4" class="xref">C.4</a>.  <a href="#name-from-draft-ietf-rats-eat-02" class="xref">From draft-ietf-rats-eat-02</a><a href="#section-toc.1-1.11.2.4.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.11.2.5">
+                <p id="section-toc.1-1.11.2.5.1"><a href="#section-c.5" class="xref">C.5</a>.  <a href="#name-from-draft-ietf-rats-eat-03" class="xref">From draft-ietf-rats-eat-03</a><a href="#section-toc.1-1.11.2.5.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#section-appendix.d" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.12.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </nav>
@@ -1417,10 +1484,10 @@ needed for ECDAA.<a href="#section-2-3.10" class="pilcrow">¶</a>
 </dl>
 </section>
 </div>
-<div id="the-claims-information-model">
+<div id="the-claims">
 <section id="section-3">
-      <h2 id="name-the-claims-information-mode">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-the-claims-information-mode" class="section-name selfRef">The Claims Information Model</a>
+      <h2 id="name-the-claims">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-the-claims" class="section-name selfRef">The Claims</a>
       </h2>
 <p id="section-3-1">This section describes new claims defined for attestation. It also
 mentions several claims defined by CWT and JWT that are particularly
@@ -1442,23 +1509,21 @@ other than they are not reported. The reason for a claim's absence may
 be the implementation not supporting the claim, an inability to
 determine its value, or a preference to report in a different way such
 as a proprietary claim.<a href="#section-3-4" class="pilcrow">¶</a></p>
-<p id="section-3-5">CDDL along with text descriptions is used to define the information
-model.  Each claim is defined as a CDDL group (the group is a general
-aggregation and type definition feature of CDDL). In the data model,
-described in the <a href="#datamodel" class="xref">Section 4</a>, the CDDL groups turn into CBOR map
-entries and JSON name/value pairs.<a href="#section-3-5" class="pilcrow">¶</a></p>
-<div id="nonce-claim-cti-and-jti">
+<p id="section-3-5">CDDL along with text descriptions is used to define each claim
+indepdent of encoding.  Each claim is defined as a CDDL group (the
+group is a general aggregation and type definition feature of
+CDDL). In the encoding section <a href="#encoding" class="xref">Section 4</a>, the CDDL groups turn into
+CBOR map entries and JSON name/value pairs.<a href="#section-3-5" class="pilcrow">¶</a></p>
+<div id="token-id-claim-cti-and-jti">
 <section id="section-3.1">
-        <h3 id="name-nonce-claim-cti-and-jti">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-nonce-claim-cti-and-jti" class="section-name selfRef">Nonce Claim (cti and jti)</a>
+        <h3 id="name-token-id-claim-cti-and-jti">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-token-id-claim-cti-and-jti" class="section-name selfRef">Token ID Claim (cti and jti)</a>
         </h3>
-<p id="section-3.1-1">All EATs should have a nonce to prevent replay attacks. The nonce is
-generated by the relying party, provided to the entity,
-and included in the token. Note that intrinsically by the nature of a
-nonce no security is needed for its transport.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.1-2">CWT defines the "cti" claim. JWT defines the "jti" claim. These carry
-the nonce in an EAT.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
-<p id="section-3.1-3">TODO: what about the JWT claim "nonce"?<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.1-1">CWT defines the "cti" claim. JWT defines the "jti" claim. These are
+equivalent to each other in EAT and carry a unique token identifier as
+they do in JWT and CWT.  They may be used to defend against re use of
+the token but are distinct from the nonce that is used by the relying
+party to guarantee freshness and defend against replay.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="timestamp-claim-iat">
@@ -1470,18 +1535,55 @@ the nonce in an EAT.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
 date-of-creation of the token.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="universal-entity-id-claim-ueid">
+<div id="nonce-claim-nonce">
 <section id="section-3.3">
-        <h3 id="name-universal-entity-id-claim-u">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-universal-entity-id-claim-u" class="section-name selfRef">Universal Entity ID Claim (ueid)</a>
+        <h3 id="name-nonce-claim-nonce">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-nonce-claim-nonce" class="section-name selfRef">Nonce Claim (nonce)</a>
         </h3>
-<p id="section-3.3-1">UEID's identify individual manufactured entities / devices such as a
+<p id="section-3.3-1">All EATs should have a nonce to prevent replay attacks. The nonce is
+generated by the relying party, the end consumer of the token. It is
+conveyed to the entity over whatever transport is in use before the
+token is generated and then included in the token as the nonce claim.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-2">This documents the nonce claim for registration in the IANA CWT 
+claims registry. This is equivalent to the JWT nonce claim that is
+already registered.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
+<p id="section-3.3-3">The nonce must be at least 8 bytes (64 bits) as fewer are unlikely
+to be secure. A maximum of 64 bytes is set to limit the memory
+a constrained implementation uses. This size range is not set
+for the already-registered JWT nonce, but it should follow
+this size recommendation when used in an EAT.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
+<p id="section-3.3-4">Multiple nonces are allowed to accommodate multistage verification
+and consumption.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
+<div id="nonce-cddl">
+<section id="section-3.3.1">
+          <h4 id="name-nonce-cddl">
+<a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-nonce-cddl" class="section-name selfRef">nonce CDDL</a>
+          </h4>
+<div class="artwork art-text alignLeft art-CDDL" id="section-3.3.1-1">
+<pre>
+nonce-type = [ + bstr .size (8..64) ]
+
+nonce-claim = (
+    nonce =&gt; nonce-type
+)
+</pre><a href="#section-3.3.1-1" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="universal-entity-id-claim-ueid">
+<section id="section-3.4">
+        <h3 id="name-universal-entity-id-claim-u">
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-universal-entity-id-claim-u" class="section-name selfRef">Universal Entity ID Claim (ueid)</a>
+        </h3>
+<p id="section-3.4-1">UEID's identify individual manufactured entities / devices such as a
 mobile phone, a water meter, a Bluetooth speaker or a networked
 security camera. It may identify the entire device or a submodule or
 subsystem. It does not identify types, models or classes of
 devices. It is akin to a serial number, though it does not have to be
-sequential.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
-<p id="section-3.3-2">UEID's must be universally and globally unique across manufacturers
+sequential.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-2">UEID's must be universally and globally unique across manufacturers
 and countries. UEIDs must also be unique across protocols and systems,
 as tokens are intended to be embedded in many different protocols and
 systems. No two products anywhere, even in completely different
@@ -1489,19 +1591,19 @@ industries made by two different manufacturers in two different
 countries should have the same UEID (if they are not global and
 universal in this way, then relying parties receiving them will have
 to track other characteristics of the device to keep devices distinct
-between manufacturers).<a href="#section-3.3-2" class="pilcrow">¶</a></p>
-<p id="section-3.3-3">There are privacy considerations for UEID's. See <a href="#ueidprivacyconsiderations" class="xref">Section 6.1</a>.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
-<p id="section-3.3-4">The UEID should be permanent. It should never change for a given
+between manufacturers).<a href="#section-3.4-2" class="pilcrow">¶</a></p>
+<p id="section-3.4-3">There are privacy considerations for UEID's. See <a href="#ueidprivacyconsiderations" class="xref">Section 6.1</a>.<a href="#section-3.4-3" class="pilcrow">¶</a></p>
+<p id="section-3.4-4">The UEID should be permanent. It should never change for a given
 device / entity. In addition, it should not be reprogrammable.  UEID's
-are variable length. The recommended maximum is 33 bytes (1 type byte
-and 256 bits). The recommended minimum is 17 bytes (1 type and 128
-bits) because fewer bytes endanger the universal uniqueness.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
-<p id="section-3.3-5">When the entity constructs the UEID, the first byte is a type and the
+are variable length. All implementations MUST be able to receive
+UEID's that are 33 bytes long (1 type byte and 256 bits).  The
+recommended maximum sent is also 33 bytes.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
+<p id="section-3.4-5">When the entity constructs the UEID, the first byte is a type and the
 following bytes the ID for that type. Several types are allowed to
 accommodate different industries and different manufacturing processes
 and to give options to avoid paying fees for certain types of
-manufacturer registrations.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
-<p id="section-3.3-6">Creation of new types requires a Standards Action <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.<a href="#section-3.3-6" class="pilcrow">¶</a></p>
+manufacturer registrations.<a href="#section-3.4-5" class="pilcrow">¶</a></p>
+<p id="section-3.4-6">Creation of new types requires a Standards Action <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.<a href="#section-3.4-6" class="pilcrow">¶</a></p>
 <span id="name-ueid-composition-types"></span><div id="ueid-types-table">
 <table class="center" id="table-1">
           <caption>
@@ -1519,80 +1621,68 @@ manufacturer registrations.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">0x01</td>
               <td class="text-left" rowspan="1" colspan="1">RAND</td>
-              <td class="text-left" rowspan="1" colspan="1">This is a 128- to 256-bit random number generated once and stored in the device. This may be constructed by concatenating enough identifiers to be universally unique and then feeding the concatenation through a cryptographic hash function. It may also be a cryptographic quality random number generate once at the beginning of the life of the device and stored.</td>
+              <td class="text-left" rowspan="1" colspan="1">This is a 128, 192 or 256 bit random number generated once and stored in the device. This may be constructed by concatenating enough identifiers to make up an equivalent number of random bits and then feeding the concatenation through a cryptographic hash function. It may also be a cryptographic quality random number generated once at the beginning of the life of the device and stored. It may not be smaller than 128 bits.</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">0x02</td>
               <td class="text-left" rowspan="1" colspan="1">IEEE EUI</td>
-              <td class="text-left" rowspan="1" colspan="1">This makes use of the IEEE company identification registry. An EUI is made up of an OUI and OUI-36 or a CID, different registered company identifiers, and some unique per-device identifier. EUIs are often the same as or similar to MAC addresses. (Note that while devices with multiple network interfaces may have multiple MAC addresses, there is only one UEID for a device) TODO: normative references to IEEE.</td>
+              <td class="text-left" rowspan="1" colspan="1">This makes use of the IEEE company identification registry. An EUI is either an EUI-48, EUI-60 or EUI-64 and made up of an OUI, OUI-36 or a CID, different registered company identifiers, and some unique per-device identifier. EUIs are often the same as or similar to MAC addresses. This type includes MAC-48, an obsolete name for EUI-48. (Note that while devices with multiple network interfaces may have multiple MAC addresses, there is only one UEID for a device) <span>[<a href="#IEEE.802-2001" class="xref">IEEE.802-2001</a>]</span>, <span>[<a href="#OUI.Guide" class="xref">OUI.Guide</a>]</span>
+</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">0x03</td>
               <td class="text-left" rowspan="1" colspan="1">IMEI</td>
-              <td class="text-left" rowspan="1" colspan="1">This is a 14-digit identifier consisting of an 8-digit Type Allocation Code and a 6-digit serial number allocated by the manufacturer, which SHALL be encoded as a binary integer over 48 bits. The IMEI value encoded SHALL NOT include Luhn checksum or SVN information.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">0x04</td>
-              <td class="text-left" rowspan="1" colspan="1">EUI-48</td>
-              <td class="text-left" rowspan="1" colspan="1">This is a 48-bit identifier formed by concatenating the 24-bit OUI with a 24-bit identifier assigned by the organisation that purchased the OUI.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">0x05</td>
-              <td class="text-left" rowspan="1" colspan="1">EUI-60</td>
-              <td class="text-left" rowspan="1" colspan="1">This is a 60-bit identifier formed by concatenating the 24-bit OUI with a 36-bit identifier assigned by the organisation that purchased the OUI.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">0x06</td>
-              <td class="text-left" rowspan="1" colspan="1">EUI-64</td>
-              <td class="text-left" rowspan="1" colspan="1">This is a 64-bit identifier formed by concatenating the 24-bit OUI with a 40-bit identifier assigned by the organisation that purchased the OUI.</td>
+              <td class="text-left" rowspan="1" colspan="1">This is a 14-digit identifier consisting of an 8-digit Type Allocation Code and a 6-digit serial number allocated by the manufacturer, which SHALL be encoded as a binary integer over 48 bits. The IMEI value encoded SHALL NOT include Luhn checksum or SVN information. <span>[<a href="#ThreeGPP.IMEI" class="xref">ThreeGPP.IMEI</a>]</span>
+</td>
             </tr>
           </tbody>
         </table>
 </div>
-<p id="section-3.3-8">UEID's are not designed for direct use by humans (e.g., printing on
-the case of a device), so no textual representation is defined.<a href="#section-3.3-8" class="pilcrow">¶</a></p>
-<p id="section-3.3-9">The consumer (the relying party) of a UEID MUST treat a UEID as a
+<p id="section-3.4-8">UEID's are not designed for direct use by humans (e.g., printing on
+the case of a device), so no textual representation is defined.<a href="#section-3.4-8" class="pilcrow">¶</a></p>
+<p id="section-3.4-9">The consumer (the relying party) of a UEID MUST treat a UEID as a
 completely opaque string of bytes and not make any use of its internal
 structure. For example, they should not use the OUI part of a type
 0x02 UEID to identify the manufacturer of the device. Instead they
-should use the OUI claim that is defined elsewhere. The reasons for
-this are:<a href="#section-3.3-9" class="pilcrow">¶</a></p>
+should use the oemid claim that is defined elsewhere. The reasons for
+this are:<a href="#section-3.4-9" class="pilcrow">¶</a></p>
 <ul>
-<li id="section-3.3-10.1">UEIDs types may vary freely from one manufacturer to the next.<a href="#section-3.3-10.1" class="pilcrow">¶</a>
+<li id="section-3.4-10.1">UEIDs types may vary freely from one manufacturer to the next.<a href="#section-3.4-10.1" class="pilcrow">¶</a>
 </li>
-<li id="section-3.3-10.2">New types of UEIDs may be created. For example, a type 0x07 UEID may
-be created based on some other manufacturer registration scheme.<a href="#section-3.3-10.2" class="pilcrow">¶</a>
+<li id="section-3.4-10.2">New types of UEIDs may be created. For example, a type 0x07 UEID may
+be created based on some other manufacturer registration scheme.<a href="#section-3.4-10.2" class="pilcrow">¶</a>
 </li>
-<li id="section-3.3-10.3">Device manufacturers are allowed to change from one type of UEID to
+<li id="section-3.4-10.3">Device manufacturers are allowed to change from one type of UEID to
 another anytime they want. For example, they may find they can
 optimize their manufacturing by switching from type 0x01 to type
 0x02 or vice versa.  The main requirement on the manufacturer is
-that UEIDs be universally unique.<a href="#section-3.3-10.3" class="pilcrow">¶</a>
+that UEIDs be universally unique.<a href="#section-3.4-10.3" class="pilcrow">¶</a>
 </li>
 </ul>
-<div id="cddl">
-<section id="section-3.3.1">
-          <h4 id="name-cddl">
-<a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-cddl" class="section-name selfRef">CDDL</a>
+<div id="ueid-cddl">
+<section id="section-3.4.1">
+          <h4 id="name-ueid-cddl">
+<a href="#section-3.4.1" class="section-number selfRef">3.4.1. </a><a href="#name-ueid-cddl" class="section-name selfRef">ueid CDDL</a>
           </h4>
-<div class="artwork art-text alignLeft" id="section-3.3.1-1">
+<div class="artwork art-text alignLeft art-CDDL" id="section-3.4.1-1">
 <pre>
- ueid_claim = (
- ueid: bstr )
-</pre><a href="#section-3.3.1-1" class="pilcrow">¶</a>
+ueid-claim = (
+     ueid =&gt; bstr .size (7..33)
+)
+</pre><a href="#section-3.4.1-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 </section>
 </div>
 <div id="origination-claim-origination">
-<section id="section-3.4">
+<section id="section-3.5">
         <h3 id="name-origination-claim-originati">
-<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-origination-claim-originati" class="section-name selfRef">Origination Claim (origination)</a>
+<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-origination-claim-originati" class="section-name selfRef">Origination Claim (origination)</a>
         </h3>
-<p id="section-3.4-1">This claim describes the parts of the device or entity that are
+<p id="section-3.5-1">This claim describes the parts of the device or entity that are
 creating the EAT. Often it will be tied back to the device or chip
-manufacturer. The following table gives some examples:<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+manufacturer. The following table gives some examples:<a href="#section-3.5-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-2">
           <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
 <thead>
@@ -1620,432 +1710,488 @@ manufacturer. The following table gives some examples:<a href="#section-3.4-1" c
             </tr>
           </tbody>
         </table>
-<p id="section-3.4-3">TODO: consider a more structure approach where the name and the URI
-and other are in separate fields.<a href="#section-3.4-3" class="pilcrow">¶</a></p>
-<p id="section-3.4-4">TODO: This needs refinement. It is somewhat parallel to issuer claim
-in CWT in that it describes the authority that created the token.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
-<div id="cddl-1">
-<section id="section-3.4.1">
-          <h4 id="name-cddl-2">
-<a href="#section-3.4.1" class="section-number selfRef">3.4.1. </a><a href="#name-cddl-2" class="section-name selfRef">CDDL</a>
-          </h4>
-<div class="artwork art-text alignLeft" id="section-3.4.1-1">
-<pre>
-origination_claim = (
-origination: string_or_uri )
-</pre><a href="#section-3.4.1-1" class="pilcrow">¶</a>
-</div>
-</section>
-</div>
-</section>
-</div>
-<div id="oem-identification-by-ieee-oui-oemid">
-<section id="section-3.5">
-        <h3 id="name-oem-identification-by-ieee-">
-<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-oem-identification-by-ieee-" class="section-name selfRef">OEM identification by IEEE OUI (oemid)</a>
-        </h3>
-<p id="section-3.5-1">This claim identifies a device OEM by the IEEE OUI. Reference TBD. It
-is a byte string representing the OUI in binary form in network byte
-order (TODO: confirm details).<a href="#section-3.5-1" class="pilcrow">¶</a></p>
-<p id="section-3.5-2">Companies that have more than one IEEE OUI registered with IEEE should
-pick one and prefer that for all their devices.<a href="#section-3.5-2" class="pilcrow">¶</a></p>
-<p id="section-3.5-3">Note that the OUI is in common use as a part of MAC Address. This
-claim is only the first bits of the MAC address that identify the
-manufacturer. The IEEE maintains a registry for these in which many
-companies participate.<a href="#section-3.5-3" class="pilcrow">¶</a></p>
-<div id="cddl-2">
+<p id="section-3.5-3">TODO: consider a more structure approach where the name and the URI
+and other are in separate fields.<a href="#section-3.5-3" class="pilcrow">¶</a></p>
+<p id="section-3.5-4">TODO: This needs refinement. It is somewhat parallel to issuer claim
+in CWT in that it describes the authority that created the token.<a href="#section-3.5-4" class="pilcrow">¶</a></p>
+<div id="origination-cddl">
 <section id="section-3.5.1">
-          <h4 id="name-cddl-3">
-<a href="#section-3.5.1" class="section-number selfRef">3.5.1. </a><a href="#name-cddl-3" class="section-name selfRef">CDDL</a>
+          <h4 id="name-origination-cddl">
+<a href="#section-3.5.1" class="section-number selfRef">3.5.1. </a><a href="#name-origination-cddl" class="section-name selfRef">origination CDDL</a>
           </h4>
-<div class="artwork art-text alignLeft" id="section-3.5.1-1">
+<div class="artwork art-text alignLeft art-CDDL" id="section-3.5.1-1">
 <pre>
-oemid_claim = (
-oemid: bstr )
+origination-claim = (
+    origination =&gt; string-or-uri
+)
 </pre><a href="#section-3.5.1-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 </section>
 </div>
-<div id="the-security-level-claim-securitylevel">
+<div id="oemid">
 <section id="section-3.6">
-        <h3 id="name-the-security-level-claim-se">
-<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-the-security-level-claim-se" class="section-name selfRef">The Security Level Claim (security_level)</a>
+        <h3 id="name-oem-identification-by-ieee-">
+<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-oem-identification-by-ieee-" class="section-name selfRef">OEM Identification by IEEE (oemid)</a>
         </h3>
-<p id="section-3.6-1">EATs have a claim that roughly characterizes the device / entities 
-ability to defend against attacks aimed at capturing the signing
-key, forging claims and at forging EATs. This is done by roughly 
-defining four security levels as described below. This is similar
-to the security levels defined in the Metadata Service
-defined by the Fast Identity Online (FIDO) Alliance (TODO: reference).<a href="#section-3.6-1" class="pilcrow">¶</a></p>
-<p id="section-3.6-2">These claims describe security environment and countermeasures
-available on the end-entity / client device where the attestation key
-reside and the claims originate.<a href="#section-3.6-2" class="pilcrow">¶</a></p>
-<dl class="dlParallel" id="section-3.6-3">
-          <dt id="section-3.6-3.1">1 - Unrestricted</dt>
-<dd id="section-3.6-3.2">
-  There is some expectation that implementor will
-protect the attestation signing keys at this level. Otherwise
-the EAT provides no meaningful security assurances.<a href="#section-3.6-3.2" class="pilcrow">¶</a>
-</dd>
-<dt id="section-3.6-3.3">2- Restricted</dt>
-<dd id="section-3.6-3.4">
-  Entities at this level should not be general-purpose
-operating environments that host features such as app download
-systems, web browsers and complex productivity applications.
-It is akin to the Secure Restricted level (see below) without the
-security orientation. Examples include a Wi-Fi subsystem,
-an IoT camera, or sensor device.<a href="#section-3.6-3.4" class="pilcrow">¶</a>
-</dd>
-<dt id="section-3.6-3.5">3 - Secure Restricted</dt>
-<dd id="section-3.6-3.6">
-  Entities at this level must meet the criteria defined by FIDO Allowed
-Restricted Operating Environments (TODO: reference). Examples include TEE's and 
-schemes using virtualization-based security. Like the FIDO security goal,
-security at this level is aimed at defending well against large-scale
-network / remote attacks against the device.<a href="#section-3.6-3.6" class="pilcrow">¶</a>
-</dd>
-<dt id="section-3.6-3.7">4 - Hardware</dt>
-<dd id="section-3.6-3.8">
-  Entities at this level must include substantial defense 
-against physical or electrical attacks against the device itself.
-It is assumed any potential attacker has captured the device and can 
-disassemble it. Example include TPMs and Secure Elements.<a href="#section-3.6-3.8" class="pilcrow">¶</a>
-</dd>
-</dl>
-<p id="section-3.6-4">This claim is not intended as a replacement for a proper end-device
-security certification schemes such as those based on FIPS (TODO: reference)
-or those based on Common Criteria (TODO: reference). The 
-claim made here is solely a self-claim made by the Entity Originator.<a href="#section-3.6-4" class="pilcrow">¶</a></p>
-<div id="cddl-3">
+<p id="section-3.6-1">The IEEE operates a global registry for MAC addresses and company IDs.
+This claim uses that database to identify OEMs. The contents of the
+claim may be either an IEEE MA-L, MA-M, MA-S or an IEEE CID
+<span>[<a href="#IEEE.RA" class="xref">IEEE.RA</a>]</span>.  An MA-L, formerly known as an OUI, is a 24-bit value
+used as the first half of a MAC address. MA-M similarly is a 28-bit
+value uses as the first part of a MAC address, and MA-S, formerly
+known as OUI-36, a 36-bit value.  Many companies already have purchased
+one of these. A CID is also a 24-bit value from the same space as an
+MA-L, but not for use as a MAC address.  IEEE has published Guidelines
+for Use of EUI, OUI, and CID <span>[<a href="#OUI.Guide" class="xref">OUI.Guide</a>]</span> and provides a lookup
+services <span>[<a href="#OUI.Lookup" class="xref">OUI.Lookup</a>]</span><a href="#section-3.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.6-2">Companies that have more than one of these IDs or MAC address blocks
+should pick one and prefer that for all their devices.<a href="#section-3.6-2" class="pilcrow">¶</a></p>
+<p id="section-3.6-3">Commonly, these are expressed in Hexadecimal Representation
+<span>[<a href="#IEEE.802-2001" class="xref">IEEE.802-2001</a>]</span> also called the Canonical format. When this claim is
+encoded the order of bytes in the bstr are the same as the order in the
+Hexadecimal Representation. For example, an MA-L like "AC-DE-48" would
+be encoded in 3 bytes with values 0xAC, 0xDE, 0x48. For JSON encoded
+tokens, this is further base64url encoded.<a href="#section-3.6-3" class="pilcrow">¶</a></p>
+<div id="oemid-cddl">
 <section id="section-3.6.1">
-          <h4 id="name-cddl-4">
-<a href="#section-3.6.1" class="section-number selfRef">3.6.1. </a><a href="#name-cddl-4" class="section-name selfRef">CDDL</a>
+          <h4 id="name-oemid-cddl">
+<a href="#section-3.6.1" class="section-number selfRef">3.6.1. </a><a href="#name-oemid-cddl" class="section-name selfRef">oemid CDDL</a>
           </h4>
-<div class="artwork art-text alignLeft" id="section-3.6.1-1">
+<div class="artwork art-text alignLeft art-CDDL" id="section-3.6.1-1">
 <pre>
-security_level_type = (
-unrestricted: 1,
-restricted: 2,
-secure_restricted: 3,
-hardware: 4
+oemid-claim = (
+    oemid =&gt; bstr
 )
-
-security_level_claim = (
-security_level: security_level_type )
 </pre><a href="#section-3.6.1-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 </section>
 </div>
-<div id="secure-boot-and-debug-enable-state-claims-bootstate">
+<div id="the-security-level-claim-security-level">
 <section id="section-3.7">
-        <h3 id="name-secure-boot-and-debug-enabl">
-<a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-secure-boot-and-debug-enabl" class="section-name selfRef">Secure Boot and Debug Enable State Claims (boot_state)</a>
+        <h3 id="name-the-security-level-claim-se">
+<a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-the-security-level-claim-se" class="section-name selfRef">The Security Level Claim (security-level)</a>
         </h3>
-<p id="section-3.7-1">This claim is an array of two, the status of secure boot enabling and
-the status of debug disabling.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
-<p id="section-3.7-2">If this claim appears at the top level, the entity / device level,
-then it applies to the whole entity / device, to all the
-submodules. It must be the minimum of all the submodules. For example,
-if secure boot is enabled for all but one submodule, this claim must
-be false at the top level.<a href="#section-3.7-2" class="pilcrow">¶</a></p>
-<p id="section-3.7-3">When this claim appears in a submod, it is only an indication for that
-submodule.<a href="#section-3.7-3" class="pilcrow">¶</a></p>
-<div id="secure-boot-enabled">
+<p id="section-3.7-1">EATs have a claim that roughly characterizes the device / entities 
+ability to defend against attacks aimed at capturing the signing
+key, forging claims and at forging EATs. This is done by roughly 
+defining four security levels as described below. This is similar
+to the security levels defined in the Metadata Service
+defined by the Fast Identity Online (FIDO) Alliance (TODO: reference).<a href="#section-3.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.7-2">These claims describe security environment and countermeasures
+available on the end-entity / client device where the attestation key
+reside and the claims originate.<a href="#section-3.7-2" class="pilcrow">¶</a></p>
+<dl class="dlParallel" id="section-3.7-3">
+          <dt id="section-3.7-3.1">1 - Unrestricted</dt>
+<dd id="section-3.7-3.2">
+  There is some expectation that implementor will
+protect the attestation signing keys at this level. Otherwise
+the EAT provides no meaningful security assurances.<a href="#section-3.7-3.2" class="pilcrow">¶</a>
+</dd>
+<dt id="section-3.7-3.3">2- Restricted</dt>
+<dd id="section-3.7-3.4">
+  Entities at this level should not be general-purpose
+operating environments that host features such as app download
+systems, web browsers and complex productivity applications.
+It is akin to the Secure Restricted level (see below) without the
+security orientation. Examples include a Wi-Fi subsystem,
+an IoT camera, or sensor device.<a href="#section-3.7-3.4" class="pilcrow">¶</a>
+</dd>
+<dt id="section-3.7-3.5">3 - Secure Restricted</dt>
+<dd id="section-3.7-3.6">
+  Entities at this level must meet the criteria defined by FIDO Allowed
+Restricted Operating Environments (TODO: reference). Examples include TEE's and 
+schemes using virtualization-based security. Like the FIDO security goal,
+security at this level is aimed at defending well against large-scale
+network / remote attacks against the device.<a href="#section-3.7-3.6" class="pilcrow">¶</a>
+</dd>
+<dt id="section-3.7-3.7">4 - Hardware</dt>
+<dd id="section-3.7-3.8">
+  Entities at this level must include substantial defense 
+against physical or electrical attacks against the device itself.
+It is assumed any potential attacker has captured the device and can 
+disassemble it. Example include TPMs and Secure Elements.<a href="#section-3.7-3.8" class="pilcrow">¶</a>
+</dd>
+</dl>
+<p id="section-3.7-4">This claim is not intended as a replacement for a proper end-device
+security certification schemes such as those based on FIPS (TODO: reference)
+or those based on Common Criteria (TODO: reference). The 
+claim made here is solely a self-claim made by the Entity Originator.<a href="#section-3.7-4" class="pilcrow">¶</a></p>
+<div id="security-level-cddl">
 <section id="section-3.7.1">
-          <h4 id="name-secure-boot-enabled">
-<a href="#section-3.7.1" class="section-number selfRef">3.7.1. </a><a href="#name-secure-boot-enabled" class="section-name selfRef">Secure Boot Enabled</a>
+          <h4 id="name-security-level-cddl">
+<a href="#section-3.7.1" class="section-number selfRef">3.7.1. </a><a href="#name-security-level-cddl" class="section-name selfRef">security-level CDDL</a>
           </h4>
-<p id="section-3.7.1-1">The value of true indicates secure boot is enabled. Secure boot is
-considered enabled when base software, the firmware and operating
-system, are under control of the entity manufacturer. This may because
-the software is in ROM or because it is cryptographically
-authenticated or some combination of the two.<a href="#section-3.7.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="debug-disable-level">
-<section id="section-3.7.2">
-          <h4 id="name-debug-disable-level">
-<a href="#section-3.7.2" class="section-number selfRef">3.7.2. </a><a href="#name-debug-disable-level" class="section-name selfRef">Debug Disable Level</a>
-          </h4>
-<p id="section-3.7.2-1">This applies to system-wide or submodule-wide debug facilities of the
-target device / submodule like JTAG and diagnostic hardware built into
-chips. It applies to any software debug facilities related to root,
-operating system or privileged software that allow system-wide memory
-inspection, tracing or modification of non-system software like user
-mode applications.<a href="#section-3.7.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.7.2-2">This characterization assumes that debug facilities can be enabled and
-disabled in a dynamic way or be disabled in some permanent way such
-that no enabling is possible. An example of dynamic enabling is one
-where some authentication is required to enable debugging. An example
-of permanent disabling is blowing a hardware fuse in a chip. The specific
-type of the mechanism is not taken into account. For example, it does
-not matter if authentication is by a global password or by per-device
-public keys.<a href="#section-3.7.2-2" class="pilcrow">¶</a></p>
-<p id="section-3.7.2-3">As with all claims, the absence of the debug level claim means
-it is not reported. A conservative interpretation might assume
-the Not Disabled state. It could however be that it is reported
-in a proprietary claim.<a href="#section-3.7.2-3" class="pilcrow">¶</a></p>
-<p id="section-3.7.2-4">The higher levels of debug disabling requires that all debug disabling
-of the levels below it be in effect. Since the lowest level requires
-that all of the target's debug be currently disabled, all other levels
-require that too.<a href="#section-3.7.2-4" class="pilcrow">¶</a></p>
-<p id="section-3.7.2-5">There is no inheritance of claims from a submodule to a superior
-module or vice versa. There is no assumption, requirement or guarantee
-that the target of a superior module encompasses the targets of
-submodules. Thus, every submodule must explicitly describe its own
-debug state. The verifier or relying party receiving an EAT cannot
-assume that debug is turned off in a submodule because there is a claim
-indicating it is turned off in a superior module.<a href="#section-3.7.2-5" class="pilcrow">¶</a></p>
-<p id="section-3.7.2-6">An individual target device / submodule may have multiple debug
-facilities. The use of plural in the description of the states
-refers to that, not to any aggregation or inheritance.<a href="#section-3.7.2-6" class="pilcrow">¶</a></p>
-<p id="section-3.7.2-7">The architecture of some chips or devices may be such that a debug
-facility operates for the whole chip or device. If the EAT for such
-a chip includes submodules, then each submodule should independently
-report the status of the whole-chip or whole-device debug facility.
-This is the only way the relying party can know the debug status
-of the submodules since there is no inheritance.<a href="#section-3.7.2-7" class="pilcrow">¶</a></p>
-<div id="not-disabled">
-<section id="section-3.7.2.1">
-            <h5 id="name-not-disabled">
-<a href="#section-3.7.2.1" class="section-number selfRef">3.7.2.1. </a><a href="#name-not-disabled" class="section-name selfRef">Not Disabled</a>
-            </h5>
-<p id="section-3.7.2.1-1">If any debug facility, even manufacturer hardware diagnostics, is
-currently enabled, then this level must be indicated.<a href="#section-3.7.2.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="disabled">
-<section id="section-3.7.2.2">
-            <h5 id="name-disabled">
-<a href="#section-3.7.2.2" class="section-number selfRef">3.7.2.2. </a><a href="#name-disabled" class="section-name selfRef">Disabled</a>
-            </h5>
-<p id="section-3.7.2.2-1">This level indicates all debug facilities are currently disabled. It
-may be possible to enable them in the future, and it may also be
-possible that they were enabled in the past after the
-target device/sub-system booted/started, but they are currently disabled.<a href="#section-3.7.2.2-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="disabled-since-boot">
-<section id="section-3.7.2.3">
-            <h5 id="name-disabled-since-boot">
-<a href="#section-3.7.2.3" class="section-number selfRef">3.7.2.3. </a><a href="#name-disabled-since-boot" class="section-name selfRef">Disabled Since Boot</a>
-            </h5>
-<p id="section-3.7.2.3-1">This level indicates all debug facilities are currently disabled and
-have been so since the target device/sub-system booted/started.<a href="#section-3.7.2.3-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="permanent-disable">
-<section id="section-3.7.2.4">
-            <h5 id="name-permanent-disable">
-<a href="#section-3.7.2.4" class="section-number selfRef">3.7.2.4. </a><a href="#name-permanent-disable" class="section-name selfRef">Permanent Disable</a>
-            </h5>
-<p id="section-3.7.2.4-1">This level indicates all non-manufacturer facilities are permanently
-disabled such that no end user or developer cannot enable them. Only
-the manufacturer indicated in the OEMID claim can enable them. This
-also indicates that all debug facilities are currently disabled and
-have been so since boot/start.<a href="#section-3.7.2.4-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="full-permanent-disable">
-<section id="section-3.7.2.5">
-            <h5 id="name-full-permanent-disable">
-<a href="#section-3.7.2.5" class="section-number selfRef">3.7.2.5. </a><a href="#name-full-permanent-disable" class="section-name selfRef">Full Permanent Disable</a>
-            </h5>
-<p id="section-3.7.2.5-1">This level indicates that all debug capabilities for the target
-device/sub-module are permanently disabled.<a href="#section-3.7.2.5-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
-<div id="cddl-4">
-<section id="section-3.7.3">
-          <h4 id="name-cddl-5">
-<a href="#section-3.7.3" class="section-number selfRef">3.7.3. </a><a href="#name-cddl-5" class="section-name selfRef">CDDL</a>
-          </h4>
-<div class="artwork art-text alignLeft" id="section-3.7.3-1">
+<div class="artwork art-text alignLeft art-CDDL" id="section-3.7.1-1">
 <pre>
-debug_disable_level = (
-    not_disabled: 0,
-    disabled: 1,
-    disabled_since_boot: 2,
-    permanent_disable: 3,
-    full_permanent_disable: 4
+security-level-type = &amp;(
+    unrestricted: 1,
+    restricted: 2,
+    secure-restricted: 3,
+    hardware: 4
 )
 
-boot_state_type = [
-    secure_boot_enabled: bool,
-    debug_state: &amp;debug_disable_level,
-]
-
-boot_state_claim = (
-    boot_state =&gt; boot_state_type
+security-level-claim = (
+    security-level =&gt; security-level-type
 )
-</pre><a href="#section-3.7.3-1" class="pilcrow">¶</a>
+</pre><a href="#section-3.7.1-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 </section>
 </div>
-<div id="the-location-claim-location">
+<div id="secure-boot-claim-secure-boot">
 <section id="section-3.8">
-        <h3 id="name-the-location-claim-location">
-<a href="#section-3.8" class="section-number selfRef">3.8. </a><a href="#name-the-location-claim-location" class="section-name selfRef">The Location Claim (location)</a>
+        <h3 id="name-secure-boot-claim-secure-bo">
+<a href="#section-3.8" class="section-number selfRef">3.8. </a><a href="#name-secure-boot-claim-secure-bo" class="section-name selfRef">Secure Boot Claim (secure-boot)</a>
         </h3>
-<p id="section-3.8-1">The location claim is a CBOR-formatted object that describes the
-location of the device entity from which the attestation originates.
-It is comprised of a map of additional sub claims that represent the
-actual location coordinates (latitude, longitude and altitude).  The
-location coordinate claims are consistent with the WGS84 coordinate
-system <span>[<a href="#WGS84" class="xref">WGS84</a>]</span>.  In addition, a sub claim providing the estimated
-accuracy of the location measurement is defined.<a href="#section-3.8-1" class="pilcrow">¶</a></p>
-<div id="cddl-5">
+<p id="section-3.8-1">The value of true indicates secure boot is enabled. Secure boot is
+considered enabled when base software, the firmware and operating
+system, are under control of the entity manufacturer identified in the
+oemid claimd described in <a href="#oemid" class="xref">Section 3.6</a>. This may because the software is
+in ROM or because it is cryptographically authenticated or some
+combination of the two or other.<a href="#section-3.8-1" class="pilcrow">¶</a></p>
+<div id="secure-boot-cddl">
 <section id="section-3.8.1">
-          <h4 id="name-cddl-6">
-<a href="#section-3.8.1" class="section-number selfRef">3.8.1. </a><a href="#name-cddl-6" class="section-name selfRef">CDDL</a>
+          <h4 id="name-secure-boot-cddl">
+<a href="#section-3.8.1" class="section-number selfRef">3.8.1. </a><a href="#name-secure-boot-cddl" class="section-name selfRef">secure-boot CDDL</a>
           </h4>
-<div class="artwork art-text alignLeft" id="section-3.8.1-1">
+<div class="artwork art-text alignLeft art-CDDL" id="section-3.8.1-1">
 <pre>
-location_type = {
-    latitude =&gt; number,
-    longitude =&gt; number,
-    altitude =&gt; number,
-    accuracy =&gt; number,
-    altitude_accuracy =&gt; number,
-    heading =&gt; number,
-    speed =&gt; number
-}
+    secure-boot-claim = (
+        secure-boot =&gt; bool
+    )
 
-location_claim = (
-location: location_type )
 </pre><a href="#section-3.8.1-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 </section>
 </div>
-<div id="the-age-claim-age">
+<div id="debug-disable-claim-debug-disable">
 <section id="section-3.9">
-        <h3 id="name-the-age-claim-age">
-<a href="#section-3.9" class="section-number selfRef">3.9. </a><a href="#name-the-age-claim-age" class="section-name selfRef">The Age Claim (age)</a>
+        <h3 id="name-debug-disable-claim-debug-d">
+<a href="#section-3.9" class="section-number selfRef">3.9. </a><a href="#name-debug-disable-claim-debug-d" class="section-name selfRef">Debug Disable Claim (debug-disable)</a>
         </h3>
-<p id="section-3.9-1">The "age" claim contains a value that represents the number of seconds
-that have elapsed since the token was created, measurement was made,
-or location was obtained.  Typical attestable values are sent as soon
-as they are obtained.  However, in the case that such a value is
-buffered and sent at a later time and a sufficiently accurate time
-reference is unavailable for creation of a timestamp, then the age
-claim is provided.<a href="#section-3.9-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.9-2">
+<p id="section-3.9-1">This applies to system-wide or submodule-wide debug facilities of the
+target device / submodule like JTAG and diagnostic hardware built into
+chips. It applies to any software debug facilities related to root,
+operating system or privileged software that allow system-wide memory
+inspection, tracing or modification of non-system software like user
+mode applications.<a href="#section-3.9-1" class="pilcrow">¶</a></p>
+<p id="section-3.9-2">This characterization assumes that debug facilities can be enabled and
+disabled in a dynamic way or be disabled in some permanent way such
+that no enabling is possible. An example of dynamic enabling is one
+where some authentication is required to enable debugging. An example
+of permanent disabling is blowing a hardware fuse in a chip. The specific
+type of the mechanism is not taken into account. For example, it does
+not matter if authentication is by a global password or by per-device
+public keys.<a href="#section-3.9-2" class="pilcrow">¶</a></p>
+<p id="section-3.9-3">As with all claims, the absence of the debug level claim means
+it is not reported. A conservative interpretation might assume
+the Not Disabled state. It could however be that it is reported
+in a proprietary claim.<a href="#section-3.9-3" class="pilcrow">¶</a></p>
+<p id="section-3.9-4">The higher levels of debug disabling requires that all debug disabling
+of the levels below it be in effect. Since the lowest level requires
+that all of the target's debug be currently disabled, all other levels
+require that too.<a href="#section-3.9-4" class="pilcrow">¶</a></p>
+<p id="section-3.9-5">There is no inheritance of claims from a submodule to a superior
+module or vice versa. There is no assumption, requirement or guarantee
+that the target of a superior module encompasses the targets of
+submodules. Thus, every submodule must explicitly describe its own
+debug state. The verifier or relying party receiving an EAT cannot
+assume that debug is turned off in a submodule because there is a claim
+indicating it is turned off in a superior module.<a href="#section-3.9-5" class="pilcrow">¶</a></p>
+<p id="section-3.9-6">An individual target device / submodule may have multiple debug
+facilities. The use of plural in the description of the states
+refers to that, not to any aggregation or inheritance.<a href="#section-3.9-6" class="pilcrow">¶</a></p>
+<p id="section-3.9-7">The architecture of some chips or devices may be such that a debug
+facility operates for the whole chip or device. If the EAT for such
+a chip includes submodules, then each submodule should independently
+report the status of the whole-chip or whole-device debug facility.
+This is the only way the relying party can know the debug status
+of the submodules since there is no inheritance.<a href="#section-3.9-7" class="pilcrow">¶</a></p>
+<div id="not-disabled">
+<section id="section-3.9.1">
+          <h4 id="name-not-disabled">
+<a href="#section-3.9.1" class="section-number selfRef">3.9.1. </a><a href="#name-not-disabled" class="section-name selfRef">Not Disabled</a>
+          </h4>
+<p id="section-3.9.1-1">If any debug facility, even manufacturer hardware diagnostics, is
+currently enabled, then this level must be indicated.<a href="#section-3.9.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="disabled">
+<section id="section-3.9.2">
+          <h4 id="name-disabled">
+<a href="#section-3.9.2" class="section-number selfRef">3.9.2. </a><a href="#name-disabled" class="section-name selfRef">Disabled</a>
+          </h4>
+<p id="section-3.9.2-1">This level indicates all debug facilities are currently disabled. It
+may be possible to enable them in the future, and it may also be
+possible that they were enabled in the past after the
+target device/sub-system booted/started, but they are currently disabled.<a href="#section-3.9.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="disabled-since-boot">
+<section id="section-3.9.3">
+          <h4 id="name-disabled-since-boot">
+<a href="#section-3.9.3" class="section-number selfRef">3.9.3. </a><a href="#name-disabled-since-boot" class="section-name selfRef">Disabled Since Boot</a>
+          </h4>
+<p id="section-3.9.3-1">This level indicates all debug facilities are currently disabled and
+have been so since the target device/sub-system booted/started.<a href="#section-3.9.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="permanent-disable">
+<section id="section-3.9.4">
+          <h4 id="name-permanent-disable">
+<a href="#section-3.9.4" class="section-number selfRef">3.9.4. </a><a href="#name-permanent-disable" class="section-name selfRef">Permanent Disable</a>
+          </h4>
+<p id="section-3.9.4-1">This level indicates all non-manufacturer facilities are permanently
+disabled such that no end user or developer cannot enable them. Only
+the manufacturer indicated in the OEMID claim can enable them. This
+also indicates that all debug facilities are currently disabled and
+have been so since boot/start.<a href="#section-3.9.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="full-permanent-disable">
+<section id="section-3.9.5">
+          <h4 id="name-full-permanent-disable">
+<a href="#section-3.9.5" class="section-number selfRef">3.9.5. </a><a href="#name-full-permanent-disable" class="section-name selfRef">Full Permanent Disable</a>
+          </h4>
+<p id="section-3.9.5-1">This level indicates that all debug capabilities for the target
+device/sub-module are permanently disabled.<a href="#section-3.9.5-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="boot-state-cddl">
+<section id="section-3.9.6">
+          <h4 id="name-boot-state-cddl">
+<a href="#section-3.9.6" class="section-number selfRef">3.9.6. </a><a href="#name-boot-state-cddl" class="section-name selfRef">boot-state CDDL</a>
+          </h4>
+<div class="artwork art-text alignLeft art-CDDL" id="section-3.9.6-1">
 <pre>
-age_claim = (
-age: uint)
-</pre><a href="#section-3.9-2" class="pilcrow">¶</a>
+    debug-disable-type = &amp;(
+        not-disabled: 0,
+        disabled: 1,
+        disabled-since-boot: 2,
+        permanent-disable: 3,
+        full-permanent-disable: 4
+    )
+
+    debug-disable-claim = (
+        debug-disable =&gt; debug-disable-type
+    )
+
+</pre><a href="#section-3.9.6-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
-<div id="the-uptime-claim-uptime">
+</section>
+</div>
+<div id="the-location-claim-location">
 <section id="section-3.10">
-        <h3 id="name-the-uptime-claim-uptime">
-<a href="#section-3.10" class="section-number selfRef">3.10. </a><a href="#name-the-uptime-claim-uptime" class="section-name selfRef">The Uptime Claim (uptime)</a>
+        <h3 id="name-the-location-claim-location">
+<a href="#section-3.10" class="section-number selfRef">3.10. </a><a href="#name-the-location-claim-location" class="section-name selfRef">The Location Claim (location)</a>
         </h3>
-<p id="section-3.10-1">The "uptime" claim contains a value that represents the number of
-seconds that have elapsed since the entity or submod was last booted.<a href="#section-3.10-1" class="pilcrow">¶</a></p>
-<div id="cddl-6">
+<p id="section-3.10-1">The location claim is a CBOR-formatted object that describes the
+location of the device entity from which the attestation originates.
+It is comprised of a map of additional sub claims that represent the
+actual location coordinates (latitude, longitude and altitude).  The
+location coordinate claims are consistent with the WGS84 coordinate
+system <span>[<a href="#WGS84" class="xref">WGS84</a>]</span>.  In addition, a sub claim providing the estimated
+accuracy of the location measurement is defined.<a href="#section-3.10-1" class="pilcrow">¶</a></p>
+<div id="location-cddl">
 <section id="section-3.10.1">
-          <h4 id="name-cddl-7">
-<a href="#section-3.10.1" class="section-number selfRef">3.10.1. </a><a href="#name-cddl-7" class="section-name selfRef">CDDL</a>
+          <h4 id="name-location-cddl">
+<a href="#section-3.10.1" class="section-number selfRef">3.10.1. </a><a href="#name-location-cddl" class="section-name selfRef">location CDDL</a>
           </h4>
-<div class="artwork art-text alignLeft" id="section-3.10.1-1">
+<div class="artwork art-text alignLeft art-CDDL" id="section-3.10.1-1">
 <pre>
-uptime_claim = (
-uptime: uint )
+location-type = {
+    latitude =&gt; number,
+    longitude =&gt; number,
+    ? altitude =&gt; number,
+    ? accuracy =&gt; number,
+    ? altitude-accuracy =&gt; number,
+    ? heading =&gt; number,
+    ? speed =&gt; number
+}
+
+location-claim = (
+    location =&gt; location-type
+)
 </pre><a href="#section-3.10.1-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 </section>
 </div>
-<div id="nested-eats-the-eat-claim-nestedeat">
+<div id="the-age-claim-age">
 <section id="section-3.11">
-        <h3 id="name-nested-eats-the-eat-claim-n">
-<a href="#section-3.11" class="section-number selfRef">3.11. </a><a href="#name-nested-eats-the-eat-claim-n" class="section-name selfRef">Nested EATs, the EAT Claim (nested_eat)</a>
+        <h3 id="name-the-age-claim-age">
+<a href="#section-3.11" class="section-number selfRef">3.11. </a><a href="#name-the-age-claim-age" class="section-name selfRef">The Age Claim (age)</a>
         </h3>
-<p id="section-3.11-1">It is allowed for one EAT to be embedded in another. This is for
-complex devices that have more than one subsystem capable of
-generating an EAT. For example, one might be the device-wide EAT that is
-low to medium security and another from a Secure Element or similar
-that is high security.<a href="#section-3.11-1" class="pilcrow">¶</a></p>
-<p id="section-3.11-2">The contents of the "nested_eat" claim must be a fully signed, optionally
-encrypted, EAT token.<a href="#section-3.11-2" class="pilcrow">¶</a></p>
-<div id="cddl-7">
+<p id="section-3.11-1">The "age" claim contains a value that represents the number of seconds
+that have elapsed since the token was created, measurement was made,
+or location was obtained.  Typical attestable values are sent as soon
+as they are obtained.  However, in the case that such a value is
+buffered and sent at a later time and a sufficiently accurate time
+reference is unavailable for creation of a timestamp, then the age
+claim is provided.<a href="#section-3.11-1" class="pilcrow">¶</a></p>
+<div id="age-cddl">
 <section id="section-3.11.1">
-          <h4 id="name-cddl-8">
-<a href="#section-3.11.1" class="section-number selfRef">3.11.1. </a><a href="#name-cddl-8" class="section-name selfRef">CDDL</a>
+          <h4 id="name-age-cddl">
+<a href="#section-3.11.1" class="section-number selfRef">3.11.1. </a><a href="#name-age-cddl" class="section-name selfRef">age CDDL</a>
           </h4>
-<div class="artwork art-text alignLeft" id="section-3.11.1-1">
+<div class="artwork art-text alignLeft art-CDDL" id="section-3.11.1-1">
 <pre>
-nested_eat_claim = (
-nested_eat: nested_eat_type)
+age-claim = (
+    age =&gt; uint
+)
 </pre><a href="#section-3.11.1-1" class="pilcrow">¶</a>
 </div>
-<p id="section-3.11.1-2">A nested_eat_type is defined in words rather than CDDL. It is either a
-full CWT or JWT including the COSE or JOSE signing.<a href="#section-3.11.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
-<div id="the-submods-claim-submods">
+<div id="the-uptime-claim-uptime">
 <section id="section-3.12">
-        <h3 id="name-the-submods-claim-submods">
-<a href="#section-3.12" class="section-number selfRef">3.12. </a><a href="#name-the-submods-claim-submods" class="section-name selfRef">The Submods Claim (submods)</a>
+        <h3 id="name-the-uptime-claim-uptime">
+<a href="#section-3.12" class="section-number selfRef">3.12. </a><a href="#name-the-uptime-claim-uptime" class="section-name selfRef">The Uptime Claim (uptime)</a>
         </h3>
-<p id="section-3.12-1">Some devices are complex, having many subsystems or submodules.  A
+<p id="section-3.12-1">The "uptime" claim contains a value that represents the number of
+seconds that have elapsed since the entity or submod was last booted.<a href="#section-3.12-1" class="pilcrow">¶</a></p>
+<div id="uptime-cddl">
+<section id="section-3.12.1">
+          <h4 id="name-uptime-cddl">
+<a href="#section-3.12.1" class="section-number selfRef">3.12.1. </a><a href="#name-uptime-cddl" class="section-name selfRef">uptime CDDL</a>
+          </h4>
+<div class="artwork art-text alignLeft art-CDDL" id="section-3.12.1-1">
+<pre>
+uptime-claim = (
+    uptime =&gt; uint
+)
+</pre><a href="#section-3.12.1-1" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="the-submods-part-of-a-token-submods">
+<section id="section-3.13">
+        <h3 id="name-the-submods-part-of-a-token">
+<a href="#section-3.13" class="section-number selfRef">3.13. </a><a href="#name-the-submods-part-of-a-token" class="section-name selfRef">The Submods Part of a Token (submods)</a>
+        </h3>
+<p id="section-3.13-1">Some devices are complex, having many subsystems or submodules.  A
 mobile phone is a good example. It may have several connectivity
 submodules for communications (e.g., Wi-Fi and cellular). It may have
 subsystems for low-power audio and video playback. It may have one or
-more security-oriented subsystems like a TEE or a Secure Element.<a href="#section-3.12-1" class="pilcrow">¶</a></p>
-<p id="section-3.12-2">The claims for each these can be grouped together in a submodule.<a href="#section-3.12-2" class="pilcrow">¶</a></p>
-<p id="section-3.12-3">Specifically, the "submods" claim is an array. Each item in the array
-is a CBOR map containing all the claims for a particular submodule.<a href="#section-3.12-3" class="pilcrow">¶</a></p>
-<p id="section-3.12-4">The security level of the submod is assumed to be at the same level as
-the main entity unless there is a security level claim in that
-submodule indicating otherwise. The security level of a submodule can
-never be higher (more secure) than the security level of the EAT it is
-a part of.<a href="#section-3.12-4" class="pilcrow">¶</a></p>
-<div id="the-submodname-claim">
-<section id="section-3.12.1">
-          <h4 id="name-the-submod_name-claim">
-<a href="#section-3.12.1" class="section-number selfRef">3.12.1. </a><a href="#name-the-submod_name-claim" class="section-name selfRef">The submod_name Claim</a>
+more security-oriented subsystems like a TEE or a Secure Element.<a href="#section-3.13-1" class="pilcrow">¶</a></p>
+<p id="section-3.13-2">The claims for each these can be grouped together in a submodule.<a href="#section-3.13-2" class="pilcrow">¶</a></p>
+<p id="section-3.13-3">The submods part of a token a single map/object with many entries, one
+per submodule.  There is only one submods map in a token. It is
+identified by its specific label. It is a peer to other claims, but it
+is not called a claim because it is a container for a claim set rather
+than an individual claim. This submods part of a token allows what
+might be called recursion. It allows claim sets inside of claim sets
+inside of claims sets...<a href="#section-3.13-3" class="pilcrow">¶</a></p>
+<div id="two-types-of-submodules">
+<section id="section-3.13.1">
+          <h4 id="name-two-types-of-submodules">
+<a href="#section-3.13.1" class="section-number selfRef">3.13.1. </a><a href="#name-two-types-of-submodules" class="section-name selfRef">Two Types of Submodules</a>
           </h4>
-<p id="section-3.12.1-1">Each submodule should have a submod_name claim that is descriptive
-name. This name should be the CBOR txt type.<a href="#section-3.12.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.13.1-1">Each entry in the submod map one of two types:<a href="#section-3.13.1-1" class="pilcrow">¶</a></p>
+<ul>
+<li id="section-3.13.1-2.1">A non-token submodule that is a map or object directly containing
+claims for the submodule.<a href="#section-3.13.1-2.1" class="pilcrow">¶</a>
+</li>
+<li id="section-3.13.1-2.2">A nested EAT that is a fully-formed, independently signed EAT token<a href="#section-3.13.1-2.2" class="pilcrow">¶</a>
+</li>
+</ul>
+<div id="non-token-submodules">
+<section id="section-3.13.1.1">
+            <h5 id="name-non-token-submodules">
+<a href="#section-3.13.1.1" class="section-number selfRef">3.13.1.1. </a><a href="#name-non-token-submodules" class="section-name selfRef">Non-token Submodules</a>
+            </h5>
+<p id="section-3.13.1.1-1">Essentially this type of submodule, is just a sub-map or sub-object
+containing claims. It is recognized from the other type by being
+a data item of type map in CBOR or by being an object in JSON.<a href="#section-3.13.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.13.1.1-2">The contents are claims about the submodule of types defined 
+in this document or anywhere else claims types are defined.<a href="#section-3.13.1.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="cddl-8">
-<section id="section-3.12.2">
-          <h4 id="name-cddl-9">
-<a href="#section-3.12.2" class="section-number selfRef">3.12.2. </a><a href="#name-cddl-9" class="section-name selfRef">CDDL</a>
+<div id="nested-eats">
+<section id="section-3.13.1.2">
+            <h5 id="name-nested-eats">
+<a href="#section-3.13.1.2" class="section-number selfRef">3.13.1.2. </a><a href="#name-nested-eats" class="section-name selfRef">Nested EATs</a>
+            </h5>
+<p id="section-3.13.1.2-1">This type of submodule is a fully formed EAT as described here. In
+this case the submodule has key material distinct from the containing
+EAT token that allows it to sign on its own.<a href="#section-3.13.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.13.1.2-2">When an EAT is nested in another EAT as a submodule the nested EAT
+MUST use the CBOR CWT tag. This clearly distinguishes it from the
+non-token submodules.<a href="#section-3.13.1.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="no-inheritance">
+<section id="section-3.13.2">
+          <h4 id="name-no-inheritance">
+<a href="#section-3.13.2" class="section-number selfRef">3.13.2. </a><a href="#name-no-inheritance" class="section-name selfRef">No Inheritance</a>
           </h4>
-<p id="section-3.12.2-1">In the following a generic_claim_type is any CBOR map entry or JSON name/value pair.<a href="#section-3.12.2-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.12.2-2">
+<p id="section-3.13.2-1">The subordinate modules do not inherit anything from the containing
+token.  The subordinate modules must explicitly include all of their
+claims. This is the case even for claims like the nonce and age.<a href="#section-3.13.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.13.2-2">This rule is in place for simplicity. It avoids complex inheritance
+rules that might vary from one type of claim to another.<a href="#section-3.13.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="security-levels">
+<section id="section-3.13.3">
+          <h4 id="name-security-levels">
+<a href="#section-3.13.3" class="section-number selfRef">3.13.3. </a><a href="#name-security-levels" class="section-name selfRef">Security Levels</a>
+          </h4>
+<p id="section-3.13.3-1">The security level of the non-token subordinate modules should always
+be less than or equal to that of the containing modules in the case of non-token
+submodules. It makes no sense for a module of lesser security to be
+signing claims of a module of higher security. An example of this is a
+TEE signing claims made by the non-TEE parts (e.g. the high-level OS)
+of the device.<a href="#section-3.13.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.13.3-2">The opposite may be true for the nested tokens. They usually have
+their own more secure key material. An example of this is an embedded
+secure element.<a href="#section-3.13.3-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="submodule-names">
+<section id="section-3.13.4">
+          <h4 id="name-submodule-names">
+<a href="#section-3.13.4" class="section-number selfRef">3.13.4. </a><a href="#name-submodule-names" class="section-name selfRef">Submodule Names</a>
+          </h4>
+<p id="section-3.13.4-1">The label or name for each submodule in the submods map is a text
+string naming the submodule. No submodules may have the same name.<a href="#section-3.13.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="submods-cddl">
+<section id="section-3.13.5">
+          <h4 id="name-submods-cddl">
+<a href="#section-3.13.5" class="section-number selfRef">3.13.5. </a><a href="#name-submods-cddl" class="section-name selfRef">submods CDDL</a>
+          </h4>
+<div class="artwork art-text alignLeft art-CDDL" id="section-3.13.5-1">
 <pre>
-submod_name_type = (
-submod_name: tstr )
+submods-type = { + submodule }
 
-submods_type = [ * submod_claims ]
+submodule = (
+    submod_name =&gt; eat-claims / eat-token
+)
 
-submod_claims = {
-    submod_name_type,
-    * generic_claim_type
-}
+submod_name = tstr / int
 
-submods_claim = (
-submods: submod_type )
-</pre><a href="#section-3.12.2-2" class="pilcrow">¶</a>
+submods-part = (
+    submods =&gt; submod-type
+)
+</pre><a href="#section-3.13.5-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
@@ -2053,20 +2199,20 @@ submods: submod_type )
 </div>
 </section>
 </div>
-<div id="datamodel">
+<div id="encoding">
 <section id="section-4">
-      <h2 id="name-data-model">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-data-model" class="section-name selfRef">Data Model</a>
+      <h2 id="name-encoding">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-encoding" class="section-name selfRef">Encoding</a>
       </h2>
-<p id="section-4-1">This makes use of the types defined in  CDDL Appendix D, Standard Prelude.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">This makes use of the types defined in CDDL Appendix D, Standard Prelude.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <div id="common-cddl-types">
 <section id="section-4.1">
         <h3 id="name-common-cddl-types">
 <a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-common-cddl-types" class="section-name selfRef">Common CDDL Types</a>
         </h3>
-<div class="artwork art-text alignLeft" id="section-4.1-1">
+<div class="artwork art-text alignLeft art-CDDL" id="section-4.1-1">
 <pre>
-string_or_uri = #6.32(tstr) / tstr; See JSON section below for JSON encoding of string_or_uri
+string-or-uri = uri / tstr; See JSON section below for JSON encoding of string-or-uri
 </pre><a href="#section-4.1-1" class="pilcrow">¶</a>
 </div>
 </section>
@@ -2079,46 +2225,25 @@ string_or_uri = #6.32(tstr) / tstr; See JSON section below for JSON encoding of 
 <p id="section-4.2-1">This section provides CDDL for the claims defined in CWT. It is
 non-normative as <span>[<a href="#RFC8392" class="xref">RFC8392</a>]</span> is the authoritative definition of these
 claims.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-4.2-2">
+<div class="artwork art-text alignLeft art-CDDL" id="section-4.2-2">
 <pre>
-cwt_claim = (
-    issuer_claim //
-    subject_claim //
-    audience_claim //
-    expiration_claim //
-    not_before_claim //
-    issued_at_calim //
-    cwt_id_claim
-)
-
-issuer_claim = (
-issuer: string_or_uri )
-
-subject_claim = (
-subject: string_or_uri )
-
-audience_claim = (
-audience: string_or_uri )
-
-expiration_claim = (
-expiration: time )
-
-not_before_claim = (
-not_before: time )
-
-issued_at_calim = (
-issued_at: time )
-
-cwt_id_claim = (
-cwt_id: bstr )
+rfc8392-claim //= ( issuer =&gt; text )
+rfc8392-claim //= ( subject =&gt; text )
+rfc8392-claim //= ( audience =&gt; text )
+rfc8392-claim //= ( expiration =&gt; time )
+rfc8392-claim //= ( not-before =&gt; time )
+rfc8392-claim //= ( issued-at =&gt; time )
+rfc8392-claim //= ( cwt-id =&gt; bytes )
 
 issuer = 1
 subject = 2
 audience = 3
 expiration = 4
-not_before = 5
-issued_at = 6
-cwt_id = 7
+not-before = 5
+issued-at = 6
+cwt-id = 7
+
+cwt-claim = rfc8392-claim
 </pre><a href="#section-4.2-2" class="pilcrow">¶</a>
 </div>
 </section>
@@ -2133,24 +2258,25 @@ cwt_id = 7
           <h4 id="name-json-labels">
 <a href="#section-4.3.1" class="section-number selfRef">4.3.1. </a><a href="#name-json-labels" class="section-name selfRef">JSON Labels</a>
           </h4>
-<div class="artwork art-text alignLeft" id="section-4.3.1-1">
+<div class="artwork art-text alignLeft art-JSON" id="section-4.3.1-1">
 <pre>
 ueid = "ueid"
 origination = "origination"
 oemid = "oemid"
-security_level = "security_level"
-boot_state = "boot_state"
+security-level = "security-level"
+secure-boot = "secure-boot"
+debug-disble = "debug-disable"
 location = "location"
 age = "age"
 uptime = "uptime"
-nested_eat = "nested_eat"
+nested-eat = "nested-eat"
 submods = "submods"
 
-latitude = "lat""
+latitude = "lat"
 longitude = "long""
 altitude = "alt"
 accuracy = "accry"
-altitude_accuracy = "alt_accry"
+altitude-accuracy = "alt-accry"
 heading = "heading"
 speed = "speed"
 </pre><a href="#section-4.3.1-1" class="pilcrow">¶</a>
@@ -2169,7 +2295,7 @@ following CDDL types are encoded in JSON as follows:<a href="#section-4.3.2-1" c
 </li>
 <li id="section-4.3.2-2.2">time - must be encoded as NumericDate as described section 2 of <span>[<a href="#RFC7519" class="xref">RFC7519</a>]</span>.<a href="#section-4.3.2-2.2" class="pilcrow">¶</a>
 </li>
-<li id="section-4.3.2-2.3">string_or_uri - must be encoded as StringOrURI as described section 2 of <span>[<a href="#RFC7519" class="xref">RFC7519</a>]</span>.<a href="#section-4.3.2-2.3" class="pilcrow">¶</a>
+<li id="section-4.3.2-2.3">string-or-uri - must be encoded as StringOrURI as described section 2 of <span>[<a href="#RFC7519" class="xref">RFC7519</a>]</span>.<a href="#section-4.3.2-2.3" class="pilcrow">¶</a>
 </li>
 </ul>
 </section>
@@ -2181,30 +2307,30 @@ following CDDL types are encoded in JSON as follows:<a href="#section-4.3.2-1" c
         <h3 id="name-cbor">
 <a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-cbor" class="section-name selfRef">CBOR</a>
         </h3>
-<div id="labels">
+<div id="cbor-labels">
 <section id="section-4.4.1">
-          <h4 id="name-labels">
-<a href="#section-4.4.1" class="section-number selfRef">4.4.1. </a><a href="#name-labels" class="section-name selfRef">Labels</a>
+          <h4 id="name-cbor-labels">
+<a href="#section-4.4.1" class="section-number selfRef">4.4.1. </a><a href="#name-cbor-labels" class="section-name selfRef">CBOR Labels</a>
           </h4>
-<div class="artwork art-text alignLeft" id="section-4.4.1-1">
+<div class="artwork art-text alignLeft art-CDDL" id="section-4.4.1-1">
 <pre>
-ueid = 8
-origination = 9
-oemid = 10
-security_level = 11
-boot_state = 12
-location = 13
-age = 14
-uptime = 15
-nested_eat = 16
-submods = 17
-submod_name = 18
+ueid = To_be_assigned
+origination = To_be_assigned
+oemid = To_be_assigned
+security-level = To_be_assigned
+secure-boot = To_be_assigned
+debug-disable = To_be_assigned
+location = To_be_assigned
+age = To_be_assigned
+uptime = To_be_assigned
+submods = To_be_assigned
+nonce = To_be_assigned
 
 latitude = 1
 longitude = 2
 altitude = 3
 accuracy = 4
-altitude_accuracy = 5
+altitude-accuracy = 5
 heading = 6
 speed = 7
 </pre><a href="#section-4.4.1-1" class="pilcrow">¶</a>
@@ -2280,26 +2406,29 @@ interoperability is not guaranteed.<a href="#section-4.4.2-5.8" class="pilcrow">
         <h3 id="name-collected-cddl">
 <a href="#section-4.5" class="section-number selfRef">4.5. </a><a href="#name-collected-cddl" class="section-name selfRef">Collected CDDL</a>
         </h3>
-<p id="section-4.5-1">A generic_claim is any CBOR map entry or JSON name/value pair.<a href="#section-4.5-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-4.5-2">
+<p id="section-4.5-1">A generic-claim is any CBOR map entry or JSON name/value pair.<a href="#section-4.5-1" class="pilcrow">¶</a></p>
+<div class="artwork art-text alignLeft art-CDDL" id="section-4.5-2">
 <pre>
-eat_claims = {  ; the top-level payload that is signed using COSE or JOSE
-        * claim
+eat-claims = { ; the top-level payload that is signed using COSE or JOSE
+    * claim
 }
 
 claim = (
-    ueid_claim //
-    origination_claim //
-    oemid_claim //
-    security_level_claim //
-    boot_state_claim //
-    location_claim //
-    age_claim //
-    uptime_claim //
-    nested_eat_claim //
-    cwt_claim //
-    generic_claim_type //
-    )
+    ueid-claim //
+    origination-claim //
+    oemid-claim //
+    security-level-claim //
+    secure-boot-claim //
+    debug-disable-claim //
+    location-claim //
+    age-claim //
+    uptime-claim //
+    submods-part //
+    cwt-claim //
+    generic-claim-type //
+)
+
+eat-token ; This is a set of eat-claims signed using COSE
 </pre><a href="#section-4.5-2" class="pilcrow">¶</a>
 </div>
 <p id="section-4.5-3">TODO: copy the rest of the CDDL here (wait until the
@@ -2405,9 +2534,94 @@ one UEID and it is still globally universal across manufacturers.<a href="#secti
       <h2 id="name-security-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-7-1">TODO: Perhaps this can be the same as CWT / COSE, but not sure yet
-because it involves so much entity / device security that 
-those do not.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">The security considerations provided in Section 8 of <span>[<a href="#RFC8392" class="xref">RFC8392</a>]</span> and Section 11
+of <span>[<a href="#RFC7519" class="xref">RFC7519</a>]</span> apply to EAT in its CWT and JWT form, respectively.  In addition, 
+implementors should consider the following.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<div id="key-provisioning">
+<section id="section-7.1">
+        <h3 id="name-key-provisioning">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-key-provisioning" class="section-name selfRef">Key Provisioning</a>
+        </h3>
+<p id="section-7.1-1">Private key material can be used to sign and/or encrypt the EAT, or
+can be used to derive the keys used for signing and/or encryption.  In
+some instances, the manufacturer of the entity may create the key
+material separately and provision the key material in the entity
+itself.  The manfuacturer of any entity that is capable of producing
+an EAT should take care to ensure that any private key material be
+suitably protected prior to provisioning the key material in the
+entity itself.  This can require creation of key material in an
+enclave (see <span>[<a href="#RFC4949" class="xref">RFC4949</a>]</span> for definition of "enclave"), secure
+transmission of the key material from the enclave to the entity using
+an appropriate protocol, and persistence of the private key material
+in some form of secure storage to which (preferably) only the entity
+has access.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<div id="transmission-of-key-material">
+<section id="section-7.1.1">
+          <h4 id="name-transmission-of-key-materia">
+<a href="#section-7.1.1" class="section-number selfRef">7.1.1. </a><a href="#name-transmission-of-key-materia" class="section-name selfRef">Transmission of Key Material</a>
+          </h4>
+<p id="section-7.1.1-1">Regarding transmission of key material from the enclave to the entity,
+the key material may pass through one or more intermediaries.
+Therefore some form of protection ("key wrapping") may be necessary.
+The transmission itself may be performed electronically, but can also
+be done by human courier.  In the latter case, there should be minimal
+to no exposure of the key material to the human (e.g. encrypted
+portable memory).  Moreover, the human should transport the key
+material directly from the secure enclave where it was created to a
+destination secure enclave where it can be provisioned.<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="transport-security">
+<section id="section-7.2">
+        <h3 id="name-transport-security">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-transport-security" class="section-name selfRef">Transport Security</a>
+        </h3>
+<p id="section-7.2-1">As stated in Section 8 of <span>[<a href="#RFC8392" class="xref">RFC8392</a>]</span>, "The security of the CWT relies
+upon on the protections offered by COSE".  Similar considerations
+apply to EAT when sent as a CWT.  However, EAT introduces the concept
+of a nonce to protect against replay.  Since an EAT may be created by
+an entity that may not support the same type of transport security as
+the consumer of the EAT, intermediaries may be required to bridge
+communications between the entity and consumer.  As a result, it is
+RECOMMENDED that both the consumer create a nonce, and the entity
+leverage the nonce along with COSE mechanisms for encryption and/or
+signing to create the EAT.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.2-2">Similar considerations apply to the use of EAT as a JWT.  Although the
+security of a JWT leverages the JSON Web Encryption (JWE) and JSON Web
+Signature (JWS) specifications, it is still recommended to make use of
+the EAT nonce.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="multiple-eat-consumers">
+<section id="section-7.3">
+        <h3 id="name-multiple-eat-consumers">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-multiple-eat-consumers" class="section-name selfRef">Multiple EAT Consumers</a>
+        </h3>
+<p id="section-7.3-1">In many cases, more than one EAT consumer may be required to fully
+verify the entity attestation.  Examples include individual consumers
+for nested EATs, or consumers for individual claims with an EAT.  When
+multiple consumers are required for verification of an EAT, it is
+important to minimize information exposure to each consumer.  In
+addition, the communication between multiple consumers should be
+secure.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
+<p id="section-7.3-2">For instance, consider the example of an encrypted and signed EAT with
+multiple claims.  A consumer may receive the EAT (denoted as the
+"receiving consumer"), decrypt its payload, verify its signature, but
+then pass specific subsets of claims to other consumers for evaluation
+("downstream consumers").  Since any COSE encryption will be removed
+by the receiving consumer, the communication of claim subsets to any
+downstream consumer should leverage a secure protocol (e.g.one that
+uses transport-layer security, i.e. TLS),<a href="#section-7.3-2" class="pilcrow">¶</a></p>
+<p id="section-7.3-3">However, assume the EAT of the previous example is hierarchical and
+each claim subset for a downstream consumer is created in the form of
+a nested EAT.  Then transport security between the receiving and
+downstream consumers is not strictly required.  Nevertheless,
+downstream consumers of a nested EAT should provide a nonce unique to
+the EAT they are consuming.<a href="#section-7.3-3" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <section id="section-8">
@@ -2421,10 +2635,10 @@ those do not.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <dl class="references">
 <dt id="IANA.CWT.Claims">[IANA.CWT.Claims]</dt>
 <dd>
-<span class="refAuthor">IANA</span>, <span class="refTitle">"CBOR Web Token (CWT) Claims"</span>, <time datetime="n.d.">n.d.</time>, <span>&lt;<a href="http://www.iana.org/assignments/cwt">http://www.iana.org/assignments/cwt</a>&gt;</span>. </dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"CBOR Web Token (CWT) Claims"</span>, <time></time>, <span>&lt;<a href="http://www.iana.org/assignments/cwt">http://www.iana.org/assignments/cwt</a>&gt;</span>. </dd>
 <dt id="IANA.JWT.Claims">[IANA.JWT.Claims]</dt>
 <dd>
-<span class="refAuthor">IANA</span>, <span class="refTitle">"JSON Web Token (JWT) Claims"</span>, <time datetime="n.d.">n.d.</time>, <span>&lt;<a href="https://www.iana.org/assignments/jwt">https://www.iana.org/assignments/jwt</a>&gt;</span>. </dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"JSON Web Token (JWT) Claims"</span>, <time></time>, <span>&lt;<a href="https://www.iana.org/assignments/jwt">https://www.iana.org/assignments/jwt</a>&gt;</span>. </dd>
 <dt id="RFC2119">[RFC2119]</dt>
 <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>&gt;</span>. </dd>
@@ -2449,6 +2663,9 @@ those do not.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <dt id="RFC8610">[RFC8610]</dt>
 <dd>
 <span class="refAuthor">Birkholz, H.</span><span class="refAuthor">, Vigano, C.</span><span class="refAuthor">, and C. Bormann</span>, <span class="refTitle">"Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures"</span>, <span class="seriesInfo">RFC 8610</span>, <span class="seriesInfo">DOI 10.17487/RFC8610</span>, <time datetime="2019-06">June 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8610">https://www.rfc-editor.org/info/rfc8610</a>&gt;</span>. </dd>
+<dt id="ThreeGPP.IMEI">[ThreeGPP.IMEI]</dt>
+<dd>
+<span class="refAuthor">3GPP</span>, <span class="refTitle">"3rd Generation Partnership Project; Technical Specification Group Core Network and Terminals; Numbering, addressing and identification"</span>, <time datetime="2019">2019</time>, <span>&lt;<a href="https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=729">https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=729</a>&gt;</span>. </dd>
 <dt id="TIME_T">[TIME_T]</dt>
 <dd>
 <span class="refAuthor">The Open Group Base Specifications</span>, <span class="refTitle">"Vol. 1: Base Definitions, Issue 7"</span>, <span class="seriesInfo">2013 Edition</span>, <span class="seriesInfo">IEEE Std 1003.1</span>, <span class="seriesInfo">Section 4.15 'Seconds Since the Epoch'</span>, <time datetime="2013">2013</time>, <span>&lt;<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_15">http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_15</a>&gt;</span>. </dd>
@@ -2465,12 +2682,33 @@ those do not.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <dt id="ASN.1">[ASN.1]</dt>
 <dd>
 <span class="refAuthor">International Telecommunication Union</span>, <span class="refTitle">"Information Technology -- ASN.1 encoding rules: Specification of Basic Encoding Rules (BER), Canonical Encoding Rules (CER) and Distinguished Encoding Rules (DER)"</span>, <span class="seriesInfo">ITU-T Recommendation X.690</span>, <time datetime="1994">1994</time>. </dd>
+<dt id="BirthdayAttack">[BirthdayAttack]</dt>
+<dd>
+<span class="refTitle">"Birthday attack"</span>, <time></time>, <span>&lt;<a href="https://en.wikipedia.org/wiki/Birthday_attack.">https://en.wikipedia.org/wiki/Birthday_attack.</a>&gt;</span>. </dd>
 <dt id="ECMAScript">[ECMAScript]</dt>
 <dd>
 <span class="refTitle">"Ecma International, "ECMAScript Language Specification, 5.1 Edition", ECMA Standard 262"</span>, <time datetime="2011-06">June 2011</time>, <span>&lt;<a href="http://www.ecma-international.org/ecma-262/5.1/ECMA-262.pdf">http://www.ecma-international.org/ecma-262/5.1/ECMA-262.pdf</a>&gt;</span>. </dd>
 <dt id="IDevID">[IDevID]</dt>
 <dd>
 <span class="refTitle">"IEEE Standard, "IEEE 802.1AR Secure Device Identifier""</span>, <time datetime="2009-12">December 2009</time>, <span>&lt;<a href="http://standards.ieee.org/findstds/standard/802.1AR-2009.html">http://standards.ieee.org/findstds/standard/802.1AR-2009.html</a>&gt;</span>. </dd>
+<dt id="IEEE.802-2001">[IEEE.802-2001]</dt>
+<dd>
+<span class="refTitle">"IEEE Standard For Local And Metropolitan Area Networks Overview And Architecture"</span>, <time datetime="2007">2007</time>, <span>&lt;<a href="https://webstore.ansi.org/standards/ieee/ieee8022001r2007">https://webstore.ansi.org/standards/ieee/ieee8022001r2007</a>&gt;</span>. </dd>
+<dt id="IEEE.RA">[IEEE.RA]</dt>
+<dd>
+<span class="refTitle">"IEEE Registration Authority"</span>, <time></time>, <span>&lt;<a href="https://standards.ieee.org/products-services/regauth/index.html">https://standards.ieee.org/products-services/regauth/index.html</a>&gt;</span>. </dd>
+<dt id="OUI.Guide">[OUI.Guide]</dt>
+<dd>
+<span class="refTitle">"Guidelines for Use of Extended Unique Identifier (EUI), Organizationally Unique Identifier (OUI), and Company ID (CID)"</span>, <time datetime="2017-08">August 2017</time>, <span>&lt;<a href="https://standards.ieee.org/content/dam/ieee-standards/standards/web/documents/tutorials/eui.pdf">https://standards.ieee.org/content/dam/ieee-standards/standards/web/documents/tutorials/eui.pdf</a>&gt;</span>. </dd>
+<dt id="OUI.Lookup">[OUI.Lookup]</dt>
+<dd>
+<span class="refTitle">"IEEE Registration Authority Assignments"</span>, <time></time>, <span>&lt;<a href="https://regauth.standards.ieee.org/standards-ra-web/pub/view.html#registries">https://regauth.standards.ieee.org/standards-ra-web/pub/view.html#registries</a>&gt;</span>. </dd>
+<dt id="RFC4122">[RFC4122]</dt>
+<dd>
+<span class="refAuthor">Leach, P.</span><span class="refAuthor">, Mealling, M.</span><span class="refAuthor">, and R. Salz</span>, <span class="refTitle">"A Universally Unique IDentifier (UUID) URN Namespace"</span>, <span class="seriesInfo">RFC 4122</span>, <span class="seriesInfo">DOI 10.17487/RFC4122</span>, <time datetime="2005-07">July 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc4122">https://www.rfc-editor.org/info/rfc4122</a>&gt;</span>. </dd>
+<dt id="RFC4949">[RFC4949]</dt>
+<dd>
+<span class="refAuthor">Shirey, R.</span>, <span class="refTitle">"Internet Security Glossary, Version 2"</span>, <span class="seriesInfo">FYI 36</span>, <span class="seriesInfo">RFC 4949</span>, <span class="seriesInfo">DOI 10.17487/RFC4949</span>, <time datetime="2007-08">August 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc4949">https://www.rfc-editor.org/info/rfc4949</a>&gt;</span>. </dd>
 <dt id="Webauthn">[Webauthn]</dt>
 <dd>
 <span class="refAuthor">Worldwide Web Consortium</span>, <span class="refTitle">"Web Authentication: A Web API for accessing scoped credentials"</span>, <time datetime="2016">2016</time>. </dd>
@@ -2492,9 +2730,10 @@ is shown.<a href="#section-a.1-1" class="pilcrow">¶</a></p>
 <div class="artwork art-text alignLeft" id="section-a.1-2">
 <pre>
 {
-   / nonce (cti) /            7:h'948f8860d13a463e8e',
-   / UEID /                   8:h'0198f50a4ff6c05861c8860d13a638ea4fe2f',
-   / boot_state /            12:{true, true, true, true, false}
+   / nonce /                  9:h'948f8860d13a463e8e',
+   / UEID /                  10:h'0198f50a4ff6c05861c8860d13a638ea4fe2f',
+   / secure-boot /           17:true,
+   / debug-disbale /         12:3,  / permanent-disable  /
    / time stamp (iat) /       6:1526542894,
 }
 </pre><a href="#section-a.1-2" class="pilcrow">¶</a>
@@ -2509,32 +2748,29 @@ is shown.<a href="#section-a.1-1" class="pilcrow">¶</a></p>
 <div class="artwork art-text alignLeft" id="section-a.2-1">
 <pre>
 {
-   / nonce /                  7:h'948f8860d13a463e8e',
-   / UEID /                   8:h'0198f50a4ff6c05861c8860d13a638ea4fe2f',
-   / boot_state /            12:{true, true, true, true, false}
+   / nonce /                  9:h'948f8860d13a463e8e',
+   / UEID /                  10:h'0198f50a4ff6c05861c8860d13a638ea4fe2f',
+   / secure-boot /           17:true,
+   / debug-disbale /         12:3,  / permanent-disable  /
    / time stamp (iat) /       6:1526542894,
    / seclevel /              11:3, / secure restricted OS /
 
    / submods / 17:
-      [
-         / 1st submod, an Android Application / {
-           / submod_name /   18:'Android App "Foo"',
-           / seclevel /      11:1, / unrestricted /
-           / app data /  -70000:'text string'
+      {
+         / first submod, an Android Application / "Android App Foo" :  {
+            / seclevel /      11:1, / unrestricted /
+            / app data /  -70000:'text string'
          },
-         / 2nd submod, A nested EAT from a secure element / {
-           / submod_name / 18:'Secure Element EAT',
-           / eat /         16:61( 18(
-              / an embedded EAT / [ /...COSE_Sign1 bytes with payload.../ ]
+         / 2nd submod, A nested EAT from a secure element / "Secure Element Eat" :
+            / eat /         61( 18(
+                                / an embedded EAT, bytes of which are not shown /
                            ))
+         / 3rd submod, information about Linux Android / "Linux Android": {
+            / seclevel /              11:1, / unrestricted /
+            / custom - release /  -80000:'8.0.0',
+            / custom - version /  -80001:'4.9.51+'
          }
-         / 3rd submod, information about Linux Android / {
-            / submod_name/ 18:'Linux Android',
-            / seclevel /   11:1, / unrestricted /
-            / custom - release / -80000:'8.0.0',
-            / custom - version / -80001:'4.9.51+'
-         }
-      ]
+      }
 }
 </pre><a href="#section-a.2-1" class="pilcrow">¶</a>
 </div>
@@ -2542,27 +2778,306 @@ is shown.<a href="#section-a.1-1" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
-<div id="changes-from-previous-drafts">
+<div id="ueid-design-rationale">
 <section id="section-appendix.b">
-      <h2 id="name-changes-from-previous-draft">
-<a href="#section-appendix.b" class="section-number selfRef">Appendix B. </a><a href="#name-changes-from-previous-draft" class="section-name selfRef">Changes from Previous Drafts</a>
+      <h2 id="name-ueid-design-rationale">
+<a href="#section-appendix.b" class="section-number selfRef">Appendix B. </a><a href="#name-ueid-design-rationale" class="section-name selfRef">UEID Design Rationale</a>
       </h2>
-<p id="section-appendix.b-1">The following is a list of known changes from the previous drafts.  This list is
-non-authoritative.  It is meant to help reviewers see the significant
-differences.<a href="#section-appendix.b-1" class="pilcrow">¶</a></p>
-<div id="from-draft-mandyam-rats-eat-00">
+<div id="collision-probability">
 <section id="section-b.1">
-        <h2 id="name-from-draft-mandyam-rats-eat">
-<a href="#section-b.1" class="section-number selfRef">B.1. </a><a href="#name-from-draft-mandyam-rats-eat" class="section-name selfRef">From draft-mandyam-rats-eat-00</a>
+        <h2 id="name-collision-probability">
+<a href="#section-b.1" class="section-number selfRef">B.1. </a><a href="#name-collision-probability" class="section-name selfRef">Collision Probability</a>
         </h2>
-<p id="section-b.1-1">This is a fairly large change in the orientation of the document, but
-not new claims have been added.<a href="#section-b.1-1" class="pilcrow">¶</a></p>
+<p id="section-b.1-1">This calculation is to determine the probability of a collision of
+UEIDs given the total possible entity population and the number of
+entities in a particular entity management database.<a href="#section-b.1-1" class="pilcrow">¶</a></p>
+<p id="section-b.1-2">Three different sized databases are considered. The number of devices
+per person roughly models non-personal devices such as traffic lights,
+devices in stores they shop in, facilities they work in and so on,
+even considering individual light bulbs. A device may have
+individually attested subsystems, for example parts of a car or a
+mobile phone. It is assumed that the largest database will have at
+most 10% of the world's population of devices. Note that databases
+that handle more than a trillion records exist today.<a href="#section-b.1-2" class="pilcrow">¶</a></p>
+<p id="section-b.1-3">The trillion-record database size models an easy-to-imagine reality
+over the next decades. The quadrillion-record database is roughly at
+the limit of what is imaginable and should probably be accommodated.
+The 100 quadrillion datadbase is highly speculative perhaps involving
+nanorobots for every person, livestock animal and domesticated
+bird. It is included to round out the analysis.<a href="#section-b.1-3" class="pilcrow">¶</a></p>
+<p id="section-b.1-4">Note that the items counted here certainly do not have IP address and
+are not individually connected to the network. They may be connected
+to internal buses, via serial links, Bluetooth and so on.  This is
+not the same problem as sizing IP addresses.<a href="#section-b.1-4" class="pilcrow">¶</a></p>
+<table class="center" id="table-3">
+          <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">People</th>
+              <th class="text-left" rowspan="1" colspan="1">Devices / Person</th>
+              <th class="text-left" rowspan="1" colspan="1">Subsystems / Device</th>
+              <th class="text-left" rowspan="1" colspan="1">Database Portion</th>
+              <th class="text-left" rowspan="1" colspan="1">Database Size</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">10 billion</td>
+              <td class="text-left" rowspan="1" colspan="1">100</td>
+              <td class="text-left" rowspan="1" colspan="1">10</td>
+              <td class="text-left" rowspan="1" colspan="1">10%</td>
+              <td class="text-left" rowspan="1" colspan="1">trillion (10^12)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">10 billion</td>
+              <td class="text-left" rowspan="1" colspan="1">100,000</td>
+              <td class="text-left" rowspan="1" colspan="1">10</td>
+              <td class="text-left" rowspan="1" colspan="1">10%</td>
+              <td class="text-left" rowspan="1" colspan="1">quadrillion (10^15)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">100 billion</td>
+              <td class="text-left" rowspan="1" colspan="1">1,000,000</td>
+              <td class="text-left" rowspan="1" colspan="1">10</td>
+              <td class="text-left" rowspan="1" colspan="1">10%</td>
+              <td class="text-left" rowspan="1" colspan="1">100 quadrillion (10^17)</td>
+            </tr>
+          </tbody>
+        </table>
+<p id="section-b.1-6">This is conceptually similar to the Birthday Problem where m is the
+number of possible birthdays, always 365, and k is the number of
+people. It is also conceptually similar to the Birthday Attack where
+collisions of the output of hash functions are considered.<a href="#section-b.1-6" class="pilcrow">¶</a></p>
+<p id="section-b.1-7">The proper formula for the collision calculation is<a href="#section-b.1-7" class="pilcrow">¶</a></p>
+<div class="artwork art-text alignLeft" id="section-b.1-8">
+<pre>
+   p = 1 - e^{-k^2/(2n)}
+
+   p   Collision Probability
+   n   Total possible population
+   k   Actual population
+</pre><a href="#section-b.1-8" class="pilcrow">¶</a>
+</div>
+<p id="section-b.1-9">However, for the very large values involved here, this formula requires floating
+point precision higher than commonly available in calculators and SW so this
+simple approximation is used. See <span>[<a href="#BirthdayAttack" class="xref">BirthdayAttack</a>]</span>.<a href="#section-b.1-9" class="pilcrow">¶</a></p>
+<div class="artwork art-text alignLeft" id="section-b.1-10">
+<pre>
+    p = k^2 / 2n
+</pre><a href="#section-b.1-10" class="pilcrow">¶</a>
+</div>
+<p id="section-b.1-11">For this calculation:<a href="#section-b.1-11" class="pilcrow">¶</a></p>
+<div class="artwork art-text alignLeft" id="section-b.1-12">
+<pre>
+    p  Collision Probability
+    n  Total population based on number of bits in UEID
+    k  Population in a database
+</pre><a href="#section-b.1-12" class="pilcrow">¶</a>
+</div>
+<table class="center" id="table-4">
+          <caption><a href="#table-4" class="selfRef">Table 4</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Database Size</th>
+              <th class="text-left" rowspan="1" colspan="1">128-bit UEID</th>
+              <th class="text-left" rowspan="1" colspan="1">192-bit UEID</th>
+              <th class="text-left" rowspan="1" colspan="1">256-bit UEID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">trillion (10^12)</td>
+              <td class="text-left" rowspan="1" colspan="1">2 * 10^-15</td>
+              <td class="text-left" rowspan="1" colspan="1">8 * 10^-35</td>
+              <td class="text-left" rowspan="1" colspan="1">5 * 10^-55</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">quadrillion (10^15)</td>
+              <td class="text-left" rowspan="1" colspan="1">2 * 10^-09</td>
+              <td class="text-left" rowspan="1" colspan="1">8 * 10^-29</td>
+              <td class="text-left" rowspan="1" colspan="1">5 * 10^-49</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">100 quadrillion (10^17)</td>
+              <td class="text-left" rowspan="1" colspan="1">2 * 10^-05</td>
+              <td class="text-left" rowspan="1" colspan="1">8 * 10^-25</td>
+              <td class="text-left" rowspan="1" colspan="1">5 * 10^-45</td>
+            </tr>
+          </tbody>
+        </table>
+<p id="section-b.1-14">Next, to calculate the probability of a collision occurring in one year's 
+operation of a database, it is assumed that the database size is in
+a steady state and that 10% of the database changes per year. For example,
+a trillion record database would have 100 billion states per year. Each
+of those states has the above calculated probability of a collision.<a href="#section-b.1-14" class="pilcrow">¶</a></p>
+<p id="section-b.1-15">This assumption is a worst-case since it assumes that each
+state of the database is completely independent from the previous state.
+In reality this is unlikely as state changes will be the addition or
+deletion of a few records.<a href="#section-b.1-15" class="pilcrow">¶</a></p>
+<p id="section-b.1-16">The following tables gives the time interval until there is a probability of 
+a collision based on there being one tenth the number of states per year
+as the number of records in the database.<a href="#section-b.1-16" class="pilcrow">¶</a></p>
+<div class="artwork art-text alignLeft" id="section-b.1-17">
+<pre>
+  t = 1 / ((k / 10) * p)
+
+  t  Time until a collision
+  p  Collision probability for UEID size
+  k  Database size
+</pre><a href="#section-b.1-17" class="pilcrow">¶</a>
+</div>
+<table class="center" id="table-5">
+          <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Database Size</th>
+              <th class="text-left" rowspan="1" colspan="1">128-bit UEID</th>
+              <th class="text-left" rowspan="1" colspan="1">192-bit UEID</th>
+              <th class="text-left" rowspan="1" colspan="1">256-bit UEID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">trillion (10^12)</td>
+              <td class="text-left" rowspan="1" colspan="1">60,000 years</td>
+              <td class="text-left" rowspan="1" colspan="1">10^24 years</td>
+              <td class="text-left" rowspan="1" colspan="1">10^44 years</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">quadrillion (10^15)</td>
+              <td class="text-left" rowspan="1" colspan="1">8 seconds</td>
+              <td class="text-left" rowspan="1" colspan="1">10^14 years</td>
+              <td class="text-left" rowspan="1" colspan="1">10^34 years</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">100 quadrillion (10^17)</td>
+              <td class="text-left" rowspan="1" colspan="1">8 microseconds</td>
+              <td class="text-left" rowspan="1" colspan="1">10^11 years</td>
+              <td class="text-left" rowspan="1" colspan="1">10^31 years</td>
+            </tr>
+          </tbody>
+        </table>
+<p id="section-b.1-19">Clearly, 128 bits is enough for the near future thus the requirement that UEIDs
+be a minimum of 128 bits.<a href="#section-b.1-19" class="pilcrow">¶</a></p>
+<p id="section-b.1-20">There is no requirement for 256 bits today as quadrillion-record databases
+are not expected in the near future and because this time-to-collision
+calculation is a very worst case.  A future update of the standard may
+increase the requirement to 256 bits, so there is a requirement that
+implementations be able to receive 256-bit UEIDs.<a href="#section-b.1-20" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="no-use-of-uuid">
+<section id="section-b.2">
+        <h2 id="name-no-use-of-uuid">
+<a href="#section-b.2" class="section-number selfRef">B.2. </a><a href="#name-no-use-of-uuid" class="section-name selfRef">No Use of UUID</a>
+        </h2>
+<p id="section-b.2-1">A UEID is not a UUID <span>[<a href="#RFC4122" class="xref">RFC4122</a>]</span> by conscious choice for the following
+reasons.<a href="#section-b.2-1" class="pilcrow">¶</a></p>
+<p id="section-b.2-2">UUIDs are limited to 128 bits which may not be enough for some future
+use cases.<a href="#section-b.2-2" class="pilcrow">¶</a></p>
+<p id="section-b.2-3">Today, cryptographic-quality random numbers are available from common
+CPUs and hardware. This hardware was introduced between 2010 and 2015.
+Operating systems and cryptographic libraries give access to this 
+hardware. Consequently, there is little need for implementations
+to construct such random values from multiple sources on their own.<a href="#section-b.2-3" class="pilcrow">¶</a></p>
+<p id="section-b.2-4">Version 4 UUIDs do allow for use of such cryptographic-quality 
+random numbers, but do so by mapping into the overall UUID 
+structure of time and clock values. This structure is of no
+value here yet adds complexity. It also slightly reduces the
+number of actual bits with entropy.<a href="#section-b.2-4" class="pilcrow">¶</a></p>
+<p id="section-b.2-5">UUIDs seem to have been designed for scenarios where the implementor
+does not have full control over the environment and uniqueness has to
+be constructed from identifiers at hand. UEID takes the view that
+hardware, software and/or manufacturing process directly implement
+UEID in a simple and direct way. It takes the view that cryptographic
+quality random number generators are readily available as they are
+implemented in commonly used CPU hardware.<a href="#section-b.2-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="changes-from-previous-drafts">
+<section id="section-appendix.c">
+      <h2 id="name-changes-from-previous-draft">
+<a href="#section-appendix.c" class="section-number selfRef">Appendix C. </a><a href="#name-changes-from-previous-draft" class="section-name selfRef">Changes from Previous Drafts</a>
+      </h2>
+<p id="section-appendix.c-1">The following is a list of known changes from the previous drafts.  This list is
+non-authoritative.  It is meant to help reviewers see the significant
+differences.<a href="#section-appendix.c-1" class="pilcrow">¶</a></p>
+<div id="from-draft-rats-eat-01">
+<section id="section-c.1">
+        <h2 id="name-from-draft-rats-eat-01">
+<a href="#section-c.1" class="section-number selfRef">C.1. </a><a href="#name-from-draft-rats-eat-01" class="section-name selfRef">From draft-rats-eat-01</a>
+        </h2>
 <ul>
-<li id="section-b.1-2.1">Separate information and data model using CDDL.<a href="#section-b.1-2.1" class="pilcrow">¶</a>
+<li id="section-c.1-1.1">Added UEID design rationale appendix<a href="#section-c.1-1.1" class="pilcrow">¶</a>
 </li>
-<li id="section-b.1-2.2">Say an EAT is a CWT or JWT<a href="#section-b.1-2.2" class="pilcrow">¶</a>
+</ul>
+</section>
+</div>
+<div id="from-draft-mandyam-rats-eat-00">
+<section id="section-c.2">
+        <h2 id="name-from-draft-mandyam-rats-eat">
+<a href="#section-c.2" class="section-number selfRef">C.2. </a><a href="#name-from-draft-mandyam-rats-eat" class="section-name selfRef">From draft-mandyam-rats-eat-00</a>
+        </h2>
+<p id="section-c.2-1">This is a fairly large change in the orientation of the document, but
+no new claims have been added.<a href="#section-c.2-1" class="pilcrow">¶</a></p>
+<ul>
+<li id="section-c.2-2.1">Separate information and data model using CDDL.<a href="#section-c.2-2.1" class="pilcrow">¶</a>
 </li>
-<li id="section-b.1-2.3">Use a map to structure the boot_state and location claims<a href="#section-b.1-2.3" class="pilcrow">¶</a>
+<li id="section-c.2-2.2">Say an EAT is a CWT or JWT<a href="#section-c.2-2.2" class="pilcrow">¶</a>
+</li>
+<li id="section-c.2-2.3">Use a map to structure the boot_state and location claims<a href="#section-c.2-2.3" class="pilcrow">¶</a>
+</li>
+</ul>
+</section>
+</div>
+<div id="from-draft-ietf-rats-eat-01">
+<section id="section-c.3">
+        <h2 id="name-from-draft-ietf-rats-eat-01">
+<a href="#section-c.3" class="section-number selfRef">C.3. </a><a href="#name-from-draft-ietf-rats-eat-01" class="section-name selfRef">From draft-ietf-rats-eat-01</a>
+        </h2>
+<ul>
+<li id="section-c.3-1.1">Clarifications and corrections for OEMID claim<a href="#section-c.3-1.1" class="pilcrow">¶</a>
+</li>
+<li id="section-c.3-1.2">Minor spelling and other fixes<a href="#section-c.3-1.2" class="pilcrow">¶</a>
+</li>
+<li id="section-c.3-1.3">Add the nonce claim, clarify jti claim<a href="#section-c.3-1.3" class="pilcrow">¶</a>
+</li>
+</ul>
+</section>
+</div>
+<div id="from-draft-ietf-rats-eat-02">
+<section id="section-c.4">
+        <h2 id="name-from-draft-ietf-rats-eat-02">
+<a href="#section-c.4" class="section-number selfRef">C.4. </a><a href="#name-from-draft-ietf-rats-eat-02" class="section-name selfRef">From draft-ietf-rats-eat-02</a>
+        </h2>
+<ul>
+<li id="section-c.4-1.1">Roll all EUIs back into one UEID type<a href="#section-c.4-1.1" class="pilcrow">¶</a>
+</li>
+<li id="section-c.4-1.2">UEIDs can be one of three lengths, 128, 192 and 256.<a href="#section-c.4-1.2" class="pilcrow">¶</a>
+</li>
+<li id="section-c.4-1.3">Added appendix justifying UEID design and size.<a href="#section-c.4-1.3" class="pilcrow">¶</a>
+</li>
+<li id="section-c.4-1.4">Submods part now includes nested eat tokens so they can be named and
+there can be more tha one of them<a href="#section-c.4-1.4" class="pilcrow">¶</a>
+</li>
+<li id="section-c.4-1.5">Lots of fixes to the CDDL<a href="#section-c.4-1.5" class="pilcrow">¶</a>
+</li>
+<li id="section-c.4-1.6">Added security considerations<a href="#section-c.4-1.6" class="pilcrow">¶</a>
+</li>
+</ul>
+</section>
+</div>
+<div id="from-draft-ietf-rats-eat-03">
+<section id="section-c.5">
+        <h2 id="name-from-draft-ietf-rats-eat-03">
+<a href="#section-c.5" class="section-number selfRef">C.5. </a><a href="#name-from-draft-ietf-rats-eat-03" class="section-name selfRef">From draft-ietf-rats-eat-03</a>
+        </h2>
+<ul>
+<li id="section-c.5-1.1">Split boot_state into secure-boot and debug-disable claims<a href="#section-c.5-1.1" class="pilcrow">¶</a>
+</li>
+<li id="section-c.5-1.2">Debug disable is an enumerated type rather than Booleans<a href="#section-c.5-1.2" class="pilcrow">¶</a>
 </li>
 </ul>
 </section>
@@ -2570,7 +3085,7 @@ not new claims have been added.<a href="#section-b.1-1" class="pilcrow">¶</a></
 </section>
 </div>
 <div id="authors-addresses">
-<section id="section-appendix.c">
+<section id="section-appendix.d">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
