@@ -1,6 +1,6 @@
 {
   "magic": "B8n2c@e8kvfx",
-  "timestamp": "2020-03-19T18:03:03.030706+00:00",
+  "timestamp": "2020-03-27T21:17:16.646999+00:00",
   "repo": "ietf-rats-wg/eat",
   "labels": [
     {
@@ -656,7 +656,7 @@
       ],
       "body": "Sec. 2.2.2 of RFC 8610 allows for a choice expression based on a '/' delimiter between options.  In order to avoid expression of potentially conflicting debug disable states (e.g. debug full permanent disable being true while debug disabled since boot being false), this could be an alternative.",
       "createdAt": "2019-07-21T16:45:47Z",
-      "updatedAt": "2020-02-29T16:49:37Z",
+      "updatedAt": "2020-03-19T18:09:14Z",
       "closedAt": null,
       "comments": [
         {
@@ -665,6 +665,13 @@
           "body": "I think I agree with this with the concept being that you claim the highest level of debug disable that is true for the device at the moment. That means selecting a higher level of debug disabling requires all the lower levels of debug disabling are true. \r\n",
           "createdAt": "2019-10-04T17:48:24Z",
           "updatedAt": "2019-10-04T17:48:24Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixed with #36 ",
+          "createdAt": "2020-03-19T18:09:02Z",
+          "updatedAt": "2020-03-19T18:09:14Z"
         }
       ]
     },
@@ -1202,9 +1209,17 @@
       "labels": [],
       "body": "Re:  https://tools.ietf.org/html/draft-ietf-rats-eat-03#appendix-A.2\r\n\r\n'seclevel' is showing up in the example.  Two issues:\r\n\r\na) seclevel is actually security-level in the current doc.\r\n\r\nb) For a submod is not providing attestation info in the form of an (endorsed) EAT, is there any value in providing security-level?  If it is there, what entity is performing the security level assessment?",
       "createdAt": "2020-02-27T18:42:27Z",
-      "updatedAt": "2020-02-27T18:42:27Z",
+      "updatedAt": "2020-03-19T18:19:40Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixed a). \r\n\r\nb) is the same as #58",
+          "createdAt": "2020-03-19T18:19:40Z",
+          "updatedAt": "2020-03-19T18:19:40Z"
+        }
+      ]
     },
     {
       "number": 57,
@@ -1793,17 +1808,17 @@
       "id": "MDExOlB1bGxSZXF1ZXN0MzI3MzE3NTAy",
       "title": "Revamp debug disable so it is levels, not Booleans",
       "url": "https://github.com/ietf-rats-wg/eat/pull/36",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "laurencelundblade",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This addresses #22",
       "createdAt": "2019-10-11T18:30:31Z",
-      "updatedAt": "2020-03-19T18:02:16Z",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
+      "updatedAt": "2020-03-19T18:05:38Z",
+      "closedAt": "2020-03-19T18:05:30Z",
+      "mergedAt": "2020-03-19T18:05:30Z",
+      "mergedBy": "laurencelundblade",
       "comments": [
         {
           "author": "SimonFrost-Arm",
@@ -2413,17 +2428,17 @@
       "id": "MDExOlB1bGxSZXF1ZXN0MzgxMzczNzA2",
       "title": "Fix sentences describing Major type 2 and other types",
       "url": "https://github.com/ietf-rats-wg/eat/pull/56",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "puiterwijk",
-      "authorAssociation": "FIRST_TIME_CONTRIBUTOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2020-02-28T12:48:51Z",
-      "updatedAt": "2020-02-28T12:48:51Z",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
+      "updatedAt": "2020-03-19T18:06:21Z",
+      "closedAt": "2020-03-19T18:06:21Z",
+      "mergedAt": "2020-03-19T18:06:21Z",
+      "mergedBy": "laurencelundblade",
       "comments": [],
       "reviews": []
     }
